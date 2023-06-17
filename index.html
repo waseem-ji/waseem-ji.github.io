@@ -11,7 +11,6 @@
           dl = l != "dataLayer" ? "&l=" + l : "";
         j.async = true;
         j.src = "https://www.googletagmanager.com/gtm.js?id=" + i + dl;
-        j.setAttribute("data-cookieyes", "analytics");
         f.parentNode.insertBefore(j, f);
       })(window, document, "script", "dataLayer", "GTM-N252GPP");
     </script>
@@ -44,14 +43,24 @@
     <h3>Welcome</h3>
 
     <iframe
-      src="https://player.vimeo.com/video/822038682?h=2b11a5bb17&dnt=true"
+      id="vimeo-iframe"
+      src=""
       loading="lazy"
       width="640"
       height="360"
       frameborder="0"
       allow="autoplay; fullscreen; picture-in-picture"
       allowfullscreen
+      defer
     ></iframe>
+
+    <script defer>
+      window.addEventListener("load", function () {
+        var iframe = document.getElementById("vimeo-iframe");
+        iframe.src =
+          "https://player.vimeo.com/video/822038682?h=2b11a5bb17&dnt=true";
+      });
+    </script>
     <p>
       <a href="https://vimeo.com/822038682">Groundhog Town</a> from
       <a href="https://vimeo.com/newyorker">NewYorker</a> on

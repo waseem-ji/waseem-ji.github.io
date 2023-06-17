@@ -60,6 +60,9 @@
           "https://player.vimeo.com/video/822038682?h=2b11a5bb17&dnt=true";
       });
     </script> -->
+    <div id="vimeo-placeholder">
+      <p>Please accept cookies to view this video.</p>
+    </div>
     <script>
       document.addEventListener(
         "cookieyes_consent_update",
@@ -70,6 +73,7 @@
             var iframe = document.getElementById("vimeo-iframe");
             iframe.src =
               "https://player.vimeo.com/video/822038682?h=2b11a5bb17&dnt=true";
+            document.getElementById("vimeo-placeholder").style.display = "none";
           }
         }
       );

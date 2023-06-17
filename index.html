@@ -53,12 +53,26 @@
       defer
     ></iframe>
 
-    <script defer>
+    <!-- <script defer>
       window.addEventListener("load", function () {
         var iframe = document.getElementById("vimeo-iframe");
         iframe.src =
           "https://player.vimeo.com/video/822038682?h=2b11a5bb17&dnt=true";
       });
+    </script> -->
+    <script>
+      document.addEventListener(
+        "cookieyes_consent_update",
+        function (eventData) {
+          const data = eventData.detail;
+          if (data.accepted.includes("analytics")) {
+            // perform desired action.
+            var iframe = document.getElementById("vimeo-iframe");
+            iframe.src =
+              "https://player.vimeo.com/video/822038682?h=2b11a5bb17&dnt=true";
+          }
+        }
+      );
     </script>
     <p>
       <a href="https://vimeo.com/822038682">Groundhog Town</a> from

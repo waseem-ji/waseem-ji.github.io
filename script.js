@@ -1,5 +1,15 @@
 // // Place this code in a script tag or a JavaScript file that is loaded on your website
 
+document.addEventListener("cookieyes_consent_update", function (eventData) {
+  const data = eventData.detail;
+  if (data.accepted.includes("analytics")) {
+    // perform desired action.
+    console.log(`The analytics cookie is accepted`);
+  } else if (data.rejected.includes("analytics")) {
+    console.log(`The analytics cookie is rejected`);
+  }
+});
+
 window.addEventListener("DOMContentLoaded", () => {
   const cookieName = "cookieyes-analytics";
   const cookieValue = document.cookie
@@ -9,14 +19,6 @@ window.addEventListener("DOMContentLoaded", () => {
     .substring(`${cookieName}=`.length);
 
   console.log(`The value of ${cookieName} is ${cookieValue}`);
-});
-
-document.addEventListener("cookieyes_consent_update", function (eventData) {
-  const data = eventData.detail;
-  if (data.accepted.includes("analytics")) {
-    // perform desired action.
-    console.log(`The value of ${cookieName} is updated to ${cookieValue}`);
-  }
 });
 
 // window.addEventListener("load", () => {

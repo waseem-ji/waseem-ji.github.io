@@ -7,7 +7,7 @@ window.addEventListener("DOMContentLoaded", () => {
     .map((cookie) => cookie.trim())
     .find((cookie) => cookie.startsWith(`${cookieName}=`))
     .substring(`${cookieName}=`.length);
-  console.log(`The value of ${cookieName} is ${value}`);
+  console.log(`The value of ${cookieName} is ${cookieValue}`);
   // if (cookieValue) {
   //   const value = cookieValue.substring(`${cookieName}=`.length);
   //   console.log(`The value of ${cookieName} is ${value}`);

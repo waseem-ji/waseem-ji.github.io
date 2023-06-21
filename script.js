@@ -1,14 +1,14 @@
 // // Place this code in a script tag or a JavaScript file that is loaded on your website
 
-document.addEventListener("cookieyes_consent_update", function (eventData) {
-  const data = eventData.detail;
-  if (data.accepted.includes("analytics")) {
-    // perform desired action.
-    console.log(`The analytics cookie is accepted`);
-  } else if (data.rejected.includes("analytics")) {
-    console.log(`The analytics cookie is rejected`);
-  }
-});
+// document.addEventListener("cookieyes_consent_update", function (eventData) {
+//   const data = eventData.detail;
+//   if (data.accepted.includes("analytics")) {
+//     // perform desired action.
+//     console.log(`The analytics cookie is accepted`);
+//   } else if (data.rejected.includes("analytics")) {
+//     console.log(`The analytics cookie is rejected`);
+//   }
+// });
 
 window.addEventListener("DOMContentLoaded", () => {
   const cookieName = "cookieyes-analytics";

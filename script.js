@@ -5,12 +5,15 @@ window.addEventListener("load", () => {
   const cookieValue = document.cookie
     .split(";")
     .map((cookie) => cookie.trim())
-    .find((cookie) => cookie.startsWith(`${cookieName}=`));
+    .find((cookie) => cookie.startsWith(`${cookieName}=`))
+    .substring(`${cookieName}=`.length);
 
-  if (cookieValue) {
-    const value = cookieValue.substring(`${cookieName}=`.length);
-    console.log(`The value of ${cookieName} is ${value}`);
-  }
+  console.log(`The value of ${cookieName} is ${cookieValue}`);
+
+  // if (cookieValue) {
+  //   const value = cookieValue.substring(`${cookieName}=`.length);
+  //   console.log(`The value of ${cookieName} is ${value}`);
+  // }
 });
 // window.addEventListener("load", () => {
 //   const cookieValue = document.cookie

@@ -9,11 +9,16 @@ window.addEventListener("DOMContentLoaded", () => {
     .substring(`${cookieName}=`.length);
 
   console.log(`The value of ${cookieName} is ${cookieValue}`);
-  // if (cookieValue) {
-  //   const value = cookieValue.substring(`${cookieName}=`.length);
-  //   console.log(`The value of ${cookieName} is ${value}`);
-  // }
 });
+
+document.addEventListener("cookieyes_consent_update", function (eventData) {
+  const data = eventData.detail;
+  if (data.accepted.includes("analytics")) {
+    // perform desired action.
+    console.log(`The value of ${cookieName} is updated to ${cookieValue}`);
+  }
+});
+
 // window.addEventListener("load", () => {
 //   const cookieValue = document.cookie
 //     .split(";")

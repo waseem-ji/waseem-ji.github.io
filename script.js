@@ -1,7 +1,7 @@
 // // Place this code in a script tag or a JavaScript file that is loaded on your website
 
 window.addEventListener("load", () => {
-  const cookieName = "cookiename-other";
+  const cookieName = "cookieyes-analytics";
   const cookieValue = document.cookie
     .split(";")
     .map((cookie) => cookie.trim())

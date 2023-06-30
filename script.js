@@ -97,7 +97,7 @@ window.addEventListener("load", function () {
     cky_a.href = "#";
     cky_a.setAttribute("onclick", "revisitCkyConsent()");
     cky_a.textContent = "Do Not Sell or Share My Personal Information";
-    cky_footer = document.querySelector(".place_parent_div_class");
+    cky_footer = document.querySelector(".doNotSell");
     cky_footer.appendChild(cky_a);
   });
 });

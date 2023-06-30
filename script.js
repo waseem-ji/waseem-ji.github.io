@@ -92,14 +92,6 @@
 
 var checktimeout = 0;
 window.addEventListener("load", function () {
-  waitForElement(".cky-btn-do-not-sell", function () {
-    var cky_a = document.createElement("a");
-    cky_a.href = "#";
-    cky_a.setAttribute("onclick", "revisitCkyConsent()");
-    cky_a.textContent = "Do Not Sell or Share My Personal Information";
-    cky_footer = document.querySelector(".doNotSell");
-    cky_footer.appendChild(cky_a);
-  });
   waitForElement(".cky-consent-container", function () {
     var cky_a = document.createElement("a");
     cky_a.href = "#";

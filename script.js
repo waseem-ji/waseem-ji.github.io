@@ -89,3 +89,25 @@
 // //     }
 // //   }
 // // });
+
+var checktimeout = 0;
+window.addEventListener("load", function () {
+  waitForElement(".cky-btn-do-not-sell", function () {
+    var cky_a = document.createElement("a");
+    cky_a.href = "#";
+    cky_a.setAttribute("onclick", "revisitCkyConsent()");
+    cky_a.textContent = "Do Not Sell or Share My Personal Information";
+    cky_footer = document.querySelector(".place_parent_div_class");
+    cky_footer.appendChild(cky_a);
+  });
+});
+function waitForElement(selector, callback) {
+  const element = document.querySelector(selector);
+  if (element) return callback();
+  checktimeout++;
+  if (checktimeout < 120) {
+    setTimeout(function () {
+      waitForElement(selector, callback);
+    }, 500);
+  }
+}

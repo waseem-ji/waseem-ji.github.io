@@ -41,43 +41,6 @@
     <!-- End Google Tag Manager -->
     <!-- Start cookieyes banner -->
     <!-- Start cookieyes banner -->
-    <script>
-      function getCookie(name) {
-        var re = new RegExp(name + "=([^;]+)");
-        var value = re.exec(document.cookie);
-        return value != null ? unescape(value[1]) : "no";
-      }
-      if (
-        getCookie("cky-consent") == "yes" &&
-        getCookie("cookieyes-analytics") == "yes"
-      ) {
-        // Enable my Analytics tracking as the analytics category consent and overall consent is granted
-        // Add anlytics script here
-        __sgConfig = {
-          c: "001-3223888f-39c6-4931-bb3a-4e6be509865b",
-          siteid: "072-f3627518-a86e-422b-b06b-6b932e1aad79",
-        };
-        // Set the __sgConfig value as a cookie
-        document.cookie =
-          "__sgConfig=" +
-          encodeURIComponent(
-            JSON.stringify({
-              c: "001-3223888f-39c6-4931-bb3a-4e6be509865b",
-              siteid: "072-f3627518-a86e-422b-b06b-6b932e1aad79",
-            })
-          );
-
-        // Retrieve the value of __sgConfig from the cookie
-        const cookieValue = decodeURIComponent(
-          document.cookie.replace(
-            /(?:(?:^|.*;\s*)__sgConfig\s*\=\s*([^;]*).*$)|^.*$/,
-            "$1"
-          )
-        );
-
-        console.log(cookieValue);
-      }
-    </script>
 
     <script>
       window.iabConfig = {

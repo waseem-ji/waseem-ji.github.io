@@ -111,3 +111,98 @@ function waitForElement(selector, callback) {
     }, 500);
   }
 }
+
+const express = require("express");
+const cookieParser = require("cookie-parser");
+
+const app = express();
+app.use(cookieParser());
+
+app.get("/", (req, res) => {
+  const cookieValue = req.cookies["cookieyes-consent"];
+
+  if (cookieValue) {
+    const cookiePairs = cookieValue.split(",").map((pair) => pair.trim());
+    const cookieObj = {};
+
+    cookiePairs.forEach((pair) => {
+      const [key, value] = pair.split(":");
+      cookieObj[key] = value;
+    });
+    console.log(cookieObj);
+
+    if (
+      [
+        "functional",
+        "analytics",
+        "performance",
+        "advertisement",
+        "other",
+      ].every(
+        (key) => cookieObj[key] === "no" || !cookieObj.hasOwnProperty(key)
+      )
+    ) {
+      console.log(
+        "The user has opted out of cookies, set strictly necessary cookies only"
+      );
+    } else {
+      if (cookieObj["functional"] === "yes") {
+        console.log("The user has accepted functional cookies");
+      } else {
+        console.log("The user has NOT accepted functional cookies");
+      }
+
+      if (cookieObj["analytics"] === "yes") {
+        console.log("The user has accepted analytics cookies");
+        __sgConfig = {
+          c: "001-3223888f-39c6-4931-bb3a-4e6be509865b",
+          siteid: "072-f3627518-a86e-422b-b06b-6b932e1aad79",
+        };
+        // Set the __sgConfig value as a cookie
+        document.cookie =
+          "__sgConfig=" +
+          encodeURIComponent(
+            JSON.stringify({
+              c: "001-3223888f-39c6-4931-bb3a-4e6be509865b",
+              siteid: "072-f3627518-a86e-422b-b06b-6b932e1aad79",
+            })
+          );
+
+        // Retrieve the value of __sgConfig from the cookie
+        const cookieValue = decodeURIComponent(
+          document.cookie.replace(
+            /(?:(?:^|.*;\s*)__sgConfig\s*\=\s*([^;]*).*$)|^.*$/,
+            "$1"
+          )
+        );
+
+        console.log(cookieValue);
+      } else {
+        console.log("The user has NOT accepted analytics cookies");
+      }
+
+      if (cookieObj["performance"] === "yes") {
+        console.log("The user has accepted performance cookies");
+      } else {
+        console.log("The user has NOT accepted performance cookies");
+      }
+
+      if (cookieObj["advertisement"] === "yes") {
+        console.log("The user has accepted advertisement cookies");
+      } else {
+        console.log("The user has NOT accepted advertisement cookies");
+      }
+
+      if ("other" in cookieObj) {
+        if (cookieObj["other"] === "yes") {
+          console.log("The user has accepted other cookies");
+        } else {
+          console.log("The user has NOT accepted other cookies");
+        }
+      }
+    }
+  }
+});
+
+const port = process.env.PORT || 3000;
+app.listen(port, () => console.log(`Listening to port ${port}`));

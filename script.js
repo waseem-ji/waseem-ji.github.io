@@ -20,6 +20,16 @@
 //     console.log(`The analytics cookie is rejected`);
 //   }
 // });
+// Set the cookie with a name, value, and expiration date
+function setCookie(cookieName, cookieValue, expirationDays) {
+  const date = new Date();
+  date.setTime(date.getTime() + expirationDays * 24 * 60 * 60 * 1000);
+  const expires = "expires=" + date.toUTCString();
+  document.cookie = cookieName + "=" + cookieValue + ";" + expires + ";path=/";
+}
+
+// Usage:
+setCookie("AlwaysCookie", "example value", 7); // Set a cookie named "myCookie" with the value "example value" that expires in 7 days
 
 window.addEventListener("load", () => {
   const cookieValue = document.cookie
@@ -62,30 +72,7 @@ window.addEventListener("load", () => {
       }
 
       if (cookieObj["analytics"] === "yes") {
-        console.log("The user has accepted analytics cookies");
-        __sgConfig = {
-          c: "001-3223888f-39c6-4931-bb3a-4e6be509865b",
-          siteid: "072-f3627518-a86e-422b-b06b-6b932e1aad79",
-        };
-        // Set the __sgConfig value as a cookie
-        document.cookie =
-          "__sgConfig=" +
-          encodeURIComponent(
-            JSON.stringify({
-              c: "001-3223888f-39c6-4931-bb3a-4e6be509865b",
-              siteid: "072-f3627518-a86e-422b-b06b-6b932e1aad79",
-            })
-          );
-
-        // Retrieve the value of __sgConfig from the cookie
-        const cookieValue = decodeURIComponent(
-          document.cookie.replace(
-            /(?:(?:^|.*;\s*)__sgConfig\s*\=\s*([^;]*).*$)|^.*$/,
-            "$1"
-          )
-        );
-
-        console.log(cookieValue);
+        setCookie("myCookie", "example value", 7); // Set a cookie named "myCookie" with the value "example value" that expires in 7 days
       } else {
         console.log("The user has NOT accepted analytics cookies");
       }
@@ -113,24 +100,24 @@ window.addEventListener("load", () => {
   }
 });
 
-var checktimeout = 0;
-window.addEventListener("load", function () {
-  waitForElement(".cky-consent-container", function () {
-    var cky_a = document.createElement("a");
-    cky_a.href = "#";
-    cky_a.setAttribute("onclick", "revisitCkyConsent()");
-    cky_a.textContent = "Do Not Sell or Share My Personal Information";
-    cky_footer = document.querySelector(".doNotSell");
-    cky_footer.appendChild(cky_a);
-  });
-});
-function waitForElement(selector, callback) {
-  const element = document.querySelector(selector);
-  if (element) return callback();
-  checktimeout++;
-  if (checktimeout < 120) {
-    setTimeout(function () {
-      waitForElement(selector, callback);
-    }, 500);
-  }
-}
+// var checktimeout = 0;
+// window.addEventListener("load", function () {
+//   waitForElement(".cky-consent-container", function () {
+//     var cky_a = document.createElement("a");
+//     cky_a.href = "#";
+//     cky_a.setAttribute("onclick", "revisitCkyConsent()");
+//     cky_a.textContent = "Do Not Sell or Share My Personal Information";
+//     cky_footer = document.querySelector(".doNotSell");
+//     cky_footer.appendChild(cky_a);
+//   });
+// });
+// function waitForElement(selector, callback) {
+//   const element = document.querySelector(selector);
+//   if (element) return callback();
+//   checktimeout++;
+//   if (checktimeout < 120) {
+//     setTimeout(function () {
+//       waitForElement(selector, callback);
+//     }, 500);
+//   }
+// }

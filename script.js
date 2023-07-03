@@ -35,7 +35,7 @@ window.addEventListener("load", () => {
   const cookieValue = document.cookie
     .split(";")
     .map((cookie) => cookie.trim())
-    .find((cookie) => cookie.startsWith("cookieyes-other"));
+    .find((cookie) => cookie.startsWith("cookieyes-consent"));
 
   if (cookieValue) {
     const cookiePairs = cookieValue

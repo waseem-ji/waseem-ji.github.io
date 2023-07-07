@@ -44,12 +44,20 @@
     <script>
       if (window.self !== window.top) {
         console.log("Website is loaded in an iframe.");
-        window.addEventListener("cookieyes_consent_update", () => {
-          var cookieBanner = document.querySelector("DOMContentLoaded");
-          console.log(cookieBanner);
-          if (cookieBanner) {
-            cookieBanner.classList.add("cky-hide");
-          }
+        // window.addEventListener("cookieyes_consent_update", () => {
+        //   var cookieBanner = document.querySelector("DOMContentLoaded");
+        //   console.log(cookieBanner);
+        //   if (cookieBanner) {
+        //     cookieBanner.classList.add("cky-hide");
+        //   }
+        // });
+        window.addEventListener("load", function () {
+          setTimeout(function () {
+            var cookieBanner = document.querySelector(".cky-consent-container");
+            if (cookieBanner) {
+              cookieBanner.classList.add("cky-hide");
+            }
+          }, 120); // Adjust the timeout value as needed
         });
       } else {
         console.log("Website is not loaded in an iframe.");

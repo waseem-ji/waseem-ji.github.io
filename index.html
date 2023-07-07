@@ -44,13 +44,8 @@
     <script>
       if (window.self !== window.top) {
         console.log("Website is loaded in an iframe.");
-        // window.addEventListener("cookieyes_consent_update", () => {
-        //   var cookieBanner = document.querySelector("DOMContentLoaded");
-        //   console.log(cookieBanner);
-        //   if (cookieBanner) {
-        //     cookieBanner.classList.add("cky-hide");
-        //   }
-        // });
+
+        var checktimeout = 0;
         window.addEventListener("load", function () {
           waitForElement(".cky-consent-container", function () {
             var cookieBanner = document.querySelector(".cky-consent-container");
@@ -59,8 +54,19 @@
             }
           });
         });
+        function waitForElement(selector, callback) {
+          const element = document.querySelector(selector);
+          if (element) return callback();
+          checktimeout++;
+          if (checktimeout < 120) {
+            setTimeout(function () {
+              waitForElement(selector, callback);
+            }, 500);
+          }
+        }
       } else {
         console.log("Website is not loaded in an iframe.");
+        var checktimeout = 0;
         window.addEventListener("load", function () {
           waitForElement(".cky-consent-container", function () {
             var cookieBanner = document.querySelector(".cky-consent-container");
@@ -69,6 +75,16 @@
             }
           });
         });
+        function waitForElement(selector, callback) {
+          const element = document.querySelector(selector);
+          if (element) return callback();
+          checktimeout++;
+          if (checktimeout < 120) {
+            setTimeout(function () {
+              waitForElement(selector, callback);
+            }, 500);
+          }
+        }
       }
     </script>
     <script>

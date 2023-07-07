@@ -43,15 +43,15 @@
     <!-- Start cookieyes banner -->
     <script>
       if (window.self !== window.top) {
-        // The website is being loaded inside an iframe
         console.log("Website is loaded in an iframe.");
-        var cookieBanner = document.querySelector(".cky-consent-container");
-        console.log(cookieBanner);
-        if (cookieBanner) {
-          cookieBanner.classList.add("cky-hide");
-        }
+        window.addEventListener("load", () => {
+          var cookieBanner = document.querySelector(".cky-consent-container");
+          console.log(cookieBanner);
+          if (cookieBanner) {
+            cookieBanner.classList.add("cky-hide");
+          }
+        });
       } else {
-        // The website is loaded in the top-level window
         console.log("Website is not loaded in an iframe.");
       }
     </script>

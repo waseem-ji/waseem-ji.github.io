@@ -42,20 +42,13 @@
     <!-- Start cookieyes banner -->
     <!-- Start cookieyes banner -->
     <script>
-      window.addEventListener("load", function () {
-        var iframe = document.getElementById("myIframe");
-
-        // Check if the iframe content is from the same origin
-        if (iframe.contentWindow.location.origin === window.location.origin) {
-          // Hide the cookie banner or perform other actions
-          var iframeDocument =
-            iframe.contentDocument || iframe.contentWindow.document;
-          var cookieBanner = iframeDocument.querySelector(".cookie-banner");
-          if (cookieBanner) {
-            cookieBanner.classList.add("cky-hide");
-          }
-        }
-      });
+      if (window.self !== window.top) {
+        // The website is being loaded inside an iframe
+        console.log("Website is loaded in an iframe.");
+      } else {
+        // The website is loaded in the top-level window
+        console.log("Website is not loaded in an iframe.");
+      }
     </script>
     <script>
       window.iabConfig = {

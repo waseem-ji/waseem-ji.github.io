@@ -46,14 +46,14 @@
         console.log("Website is loaded in an iframe.");
 
         var checktimeout = 0;
-        // window.addEventListener("load", function () {
-        waitForElement(".cky-consent-container", function () {
-          var cookieBanner = document.querySelector(".cky-consent-container");
-          if (cookieBanner) {
-            cookieBanner.classList.add("cky-hide");
-          }
+        window.addEventListener("load", function () {
+          waitForElement(".cky-consent-container", function () {
+            var cookieBanner = document.querySelector(".cky-consent-container");
+            if (cookieBanner) {
+              cookieBanner.classList.add("cky-hide");
+            }
+          });
         });
-        // });
         function waitForElement(selector, callback) {
           const element = document.querySelector(selector);
           if (element) return callback();
@@ -61,7 +61,7 @@
           if (checktimeout < 120) {
             setTimeout(function () {
               waitForElement(selector, callback);
-            }, 500);
+            }, 200);
           }
         }
       } else {

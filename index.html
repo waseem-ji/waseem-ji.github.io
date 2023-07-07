@@ -61,6 +61,14 @@
         });
       } else {
         console.log("Website is not loaded in an iframe.");
+        window.addEventListener("cookieyes_consent_update", () => {
+          var cookieBanner = document.querySelector("DOMContentLoaded");
+          console.log(cookieBanner);
+          console.log("not iframe");
+          if (cookieBanner) {
+            cookieBanner.classList.add("cky-hide");
+          }
+        });
       }
     </script>
     <script>

@@ -45,7 +45,7 @@
       if (window.self !== window.top) {
         console.log("Website is loaded in an iframe.");
         window.addEventListener("load", () => {
-          var cookieBanner = document.querySelector(".cky-consent-container");
+          var cookieBanner = document.querySelector("DOMContentLoaded");
           console.log(cookieBanner);
           if (cookieBanner) {
             cookieBanner.classList.add("cky-hide");

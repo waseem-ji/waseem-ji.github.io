@@ -44,7 +44,7 @@
     <script>
       if (window.self !== window.top) {
         console.log("Website is loaded in an iframe.");
-        console.log(window.top.location.href);
+        console.log(window.location.hostname);
 
         var checktimeout = 0;
         window.addEventListener("load", function () {

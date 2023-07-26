@@ -1,6 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
+    <style>
+      @media (max-width: 576px) {
+        .cky-preference-center {
+          max-height: calc(100vh - 90px) !important  ;
+        }
+      }
+    </style>
     <!-- <script>
       window.dataLayer = window.dataLayer || [];
 
@@ -42,6 +49,7 @@
     <!-- Start cookieyes banner -->
     <!-- Start cookieyes banner -->
     <script>
+      window.location == wiondow.parent.location;
       console.log(window.location.hostname);
       console.log("Outside");
       if (window.self !== window.top) {

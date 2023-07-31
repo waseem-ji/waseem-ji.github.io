@@ -90,15 +90,15 @@
     </script>
 
     <!-- Start cookieyes banner -->
-    <script
+    <!-- <script
       id="cookieyes"
       type="text/javascript"
       src="https://cdn-cookieyes.com/client_data/913dbfb62954a3219951f9c2/script.js"
-    ></script>
+    ></script> -->
     <!-- End cookieyes banner -->
 
     <!-- ---------------------------------- Webflow test -------------------------------------------- -->
-    <script>
+    <!-- <script>
       if (localStorage.getItem("WebflowEditor")) {
         var checktimeout = 0;
         window.addEventListener("load", function () {
@@ -123,6 +123,23 @@
             }, 50);
           }
         }
+      }
+    </script> -->
+    <script>
+      // Function to check if a specific query parameter exists in the URL
+      function hasQueryParam(paramName) {
+        const urlParams = new URLSearchParams(window.location.search);
+        return urlParams.has(paramName);
+      }
+
+      // Inject the script only if the 'myQueryParam' is not present in the URL
+      if (!hasQueryParam("edit")) {
+        const scriptElement = document.createElement("script");
+        scriptElement.id = "cookieyes";
+        scriptElement.type = "text/javascript";
+        scriptElement.src =
+          "https://cdn-cookieyes.com/client_data/abc81dc5cb41faf0dd9d8591/script.js";
+        document.body.appendChild(scriptElement);
       }
     </script>
 

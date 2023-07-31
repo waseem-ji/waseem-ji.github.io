@@ -129,6 +129,7 @@
       // Function to check if a specific query parameter exists in the URL
       function hasQueryParam(paramName) {
         const urlParams = new URLSearchParams(window.location.search);
+        console.log(urlParams);
         return urlParams.has(paramName);
       }
 

@@ -85,6 +85,9 @@
         allowedVendors: [8, 27, 53, 755],
       };
     </script> -->
+    <script>
+      localStorage.setItem(WebflowEditor, 1);
+    </script>
 
     <!-- Start cookieyes banner -->
     <script
@@ -96,26 +99,29 @@
 
     <!-- ---------------------------------- Webflow test -------------------------------------------- -->
     <script>
-      var checktimeout = 0;
-      window.addEventListener("load", function () {
-        waitForElement(".cky-consent-container", function () {
-          const parentContainer = document.querySelector(
-            ".cky-consent-container"
-          );
-          const acceptButton = parentContainer.querySelector(".cky-btn-accept");
-          if (acceptButton) {
-            acceptButton.click();
-          }
+      if (localStorage.getItem("WebflowEditor")) {
+        var checktimeout = 0;
+        window.addEventListener("load", function () {
+          waitForElement(".cky-consent-container", function () {
+            const parentContainer = document.querySelector(
+              ".cky-consent-container"
+            );
+            const acceptButton =
+              parentContainer.querySelector(".cky-btn-accept");
+            if (acceptButton) {
+              acceptButton.click();
+            }
+          });
         });
-      });
-      function waitForElement(selector, callback) {
-        const element = document.querySelector(selector);
-        if (element) return callback();
-        checktimeout++;
-        if (checktimeout < 120) {
-          setTimeout(function () {
-            waitForElement(selector, callback);
-          }, 500);
+        function waitForElement(selector, callback) {
+          const element = document.querySelector(selector);
+          if (element) return callback();
+          checktimeout++;
+          if (checktimeout < 120) {
+            setTimeout(function () {
+              waitForElement(selector, callback);
+            }, 500);
+          }
         }
       }
     </script>

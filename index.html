@@ -134,7 +134,7 @@
       }
 
       // Inject the script only if the 'myQueryParam' is not present in the URL
-      if (!hasQueryParam("edit")) {
+      if (!hasQueryParam("edit") || !hasQueryParam("edit", "1")) {
         const scriptElement = document.createElement("script");
         scriptElement.id = "cookieyes";
         scriptElement.type = "text/javascript";

@@ -1,0 +1,19 @@
+<script>
+  // Function to check if a specific query parameter exists in the URL
+  function hasQueryParam(paramName) {
+    const urlParams = new URLSearchParams(window.location.search);
+    console.log(urlParams);
+    return urlParams.has(paramName);
+  }
+
+  // Inject the script only if the 'myQueryParam' is not present in the URL
+  if (!hasQueryParam("edit") || !hasQueryParam("edit", "1")) {
+    const scriptElement = document.createElement("script");
+    scriptElement.id = "cookieyes";
+    scriptElement.type = "text/javascript";
+    scriptElement.src =
+      "https://cdn-cookieyes.com/client_data/abc81dc5cb41faf0dd9d8591/script.js";
+    console.log(scriptElement);
+    document.head.append(scriptElement);
+  }
+</script>

@@ -6,14 +6,29 @@
     return urlParams.has(paramName);
   }
 
-  // Inject the script only if the 'myQueryParam' is not present in the URL
-  if (!hasQueryParam("edit") || !hasQueryParam("edit", "1")) {
-    const scriptElement = document.createElement("script");
-    scriptElement.id = "cookieyes";
-    scriptElement.type = "text/javascript";
-    scriptElement.src =
-      "https://cdn-cookieyes.com/client_data/abc81dc5cb41faf0dd9d8591/script.js";
-    console.log(scriptElement);
-    document.head.append(scriptElement);
+  var checktimeout = 0;
+  window.addEventListener("load", function () {
+    waitForElement(".cky-consent-container", function () {
+      if (hasQueryParam("gtm_debug")) {
+        const consentContainer = document.querySelector(
+          ".cky-consent-container"
+        );
+        const acceptButton = consentContainer?.querySelector(".cky-btn-accept");
+
+        if (acceptButton) {
+          acceptButton.click();
+        }
+      }
+    });
+  });
+  function waitForElement(selector, callback) {
+    const element = document.querySelector(selector);
+    if (element) return callback();
+    checktimeout++;
+    if (checktimeout < 120) {
+      setTimeout(function () {
+        waitForElement(selector, callback);
+      }, 500);
+    }
   }
 </script>

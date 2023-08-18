@@ -1,48 +1,21 @@
 <!DOCTYPE html>
 <html lang="de">
   <head>
-    <style>
-      @media (max-width: 576px) {
-        .cky-preference-center {
-          max-height: calc(100vh - 90px) !important  ;
-        }
-      }
-    </style>
-    <!-- Start cookieyes banner -->
-    <script
-      id="cookieyes"
-      type="text/javascript"
-      src="https://cdn-cookieyes.com/client_data/4b850cb2b337bc55b2f23ebe/script.js"
-    ></script>
-    cky-consent-bar
-    <!-- End cookieyes banner -->
+    <!-- Matomo Tag Manager -->
     <script>
-      if (window.self !== window.top) {
-        console.log("Website is loaded in an iframe.");
-
-        var checktimeout = 0;
-        window.addEventListener("load", function () {
-          waitForElement(".cky-consent-bar", function () {
-            var cookieBanner = document.querySelector(".cky-consent-bar");
-            if (cookieBanner) {
-              cookieBanner.style.display = "none";
-            }
-          });
-        });
-        function waitForElement(selector, callback) {
-          const element = document.querySelector(selector);
-          if (element) return callback();
-          checktimeout++;
-          if (checktimeout < 120) {
-            setTimeout(function () {
-              waitForElement(selector, callback);
-            }, 10);
-          }
-        }
-      } else {
-        console.log("Website is not loaded in an iframe.");
-      }
+      var _mtm = (window._mtm = window._mtm || []);
+      _mtm.push({ "mtm.startTime": new Date().getTime(), event: "mtm.Start" });
+      (function () {
+        var d = document,
+          g = d.createElement("script"),
+          s = d.getElementsByTagName("script")[0];
+        g.async = true;
+        g.src =
+          "https://cdn.matomo.cloud/waseem.matomo.cloud/container_16FPgtsF.js";
+        s.parentNode.insertBefore(g, s);
+      })();
     </script>
+    <!-- End Matomo Tag Manager -->
 
     <!-- Google Tag Manager -->
     <!-- <script>

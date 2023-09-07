@@ -118,4 +118,7 @@ document.addEventListener("cookieyes_consent_update", function (eventData) {
   if (data.accepted.includes("analytics")) {
     console.log("Include analytics");
   }
+  if (data.rejected.includes("analytics")) {
+    console.log("rejected analytics");
+  }
 });

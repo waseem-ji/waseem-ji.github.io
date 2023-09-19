@@ -165,27 +165,80 @@
 //   });
 // })();
 
-const currentDomain = window.location.hostname;
+// const currentDomain = window.location.hostname;
 
-const scriptSources = {
-  "waseem-ji.github.io":
-    "https://cdn-cookieyes.com/client_data/1e34230167bcc72750eaaddc/script.js",
-  "baadagent.dk":
-    "https://cdn-cookieyes.com/client_data/91282cd33324ede294817873/script.js",
-  "batagent.fi":
-    "https://cdn-cookieyes.com/client_data/01882ad411f3f38a60c9edcf/script.js",
-  "batagent.se":
-    "https://cdn-cookieyes.com/client_data/a71b25f8dd6a9a4ab12755dd/script.js",
-};
+// const scriptSources = {
+//   "boatagent.com":
+//     "https://cdn-cookieyes.com/client_data/1e34230167bcc72750eaaddc/script.js",
+//   "baadagent.dk":
+//     "https://cdn-cookieyes.com/client_data/91282cd33324ede294817873/script.js",
+//   "batagent.fi":
+//     "https://cdn-cookieyes.com/client_data/01882ad411f3f38a60c9edcf/script.js",
+//   "batagent.se":
+//     "https://cdn-cookieyes.com/client_data/a71b25f8dd6a9a4ab12755dd/script.js",
+// };
 
-const scriptSrc = scriptSources[currentDomain];
+// const scriptSrc = scriptSources[currentDomain];
 
-if (scriptSrc) {
-  const scriptElement = document.createElement("script");
-  scriptElement.src = scriptSrc;
-  const headElement = document.head;
+// if (scriptSrc) {
+//   const scriptElement = document.createElement("script");
+//   scriptElement.src = scriptSrc;
+//   const headElement = document.head;
 
-  // Insert the script element as the first child of the head
-  headElement.insertAdjacentElement("afterbegin", scriptElement);
-  // document.head.appendChild(scriptElement);
+//   headElement.insertAdjacentElement("afterbegin", scriptElement);
+// }
+let cookies = document.cookie
+  .split(";")
+  .reduce(
+    (ac, cv, i) => Object.assign(ac, { [cv.split("=")[0]]: cv.split("=")[1] }),
+    {}
+  );
+const cookieYesConsent = cookies["cookieyes-consent"];
+let adsConsent = false;
+if (cookieYesConsent) {
+  const cookiePairs = cookieYesConsent.split(",").map((pair) => pair.trim());
+  const cookieObj = {};
+  cookiePairs.forEach((pair) => {
+    const [key, value] = pair.split(":");
+    cookieObj[key] = value;
+  });
+  if (cookieObj.advertisement === "yes") {
+    adsConsent = true;
+  }
+}
+if (!adsConsent) {
+  document.addEventListener("DOMContentLoaded", function () {
+    addPlaceholder();
+  });
+} else {
+  document.addEventListener("cookieyes_consent_update", function (eventData) {
+    const data = eventData.detail;
+    if (!data.accepted.includes("advertisement")) {
+      document.addEventListener("DOMContentLoaded", function () {
+        addPlaceholder();
+      });
+    } else {
+      document.querySelector(".tab-content").removeChild(divElement);
+    }
+  });
+}
+function addPlaceholder() {
+  const divElement = document.createElement("div");
+  divElement.setAttribute("class", "video-placeholder-youtube");
+  divElement.setAttribute("data-cky-tag", "video-placeholder");
+  //add the corresponding height and background-image for the video they want to place the placeholder
+  divElement.setAttribute(
+    "style",
+    "height: 488px; background-image: linear-gradient(rgba(76, 72, 72, 0.7), rgba(76, 72, 72, 0.7)), url(https://img.youtube.com/vi/vBpQ1SlfVtU/maxresdefault.jpg);"
+  );
+  var paragraph = document.createElement("p");
+  paragraph.setAttribute("class", "video-placeholder-text-youtube");
+  paragraph.setAttribute("data-cky-tag", "placeholder-title");
+  paragraph.setAttribute(
+    "style",
+    "display: block; border-color: rgb(0, 0, 0); background-color: rgb(0, 0, 0); color: rgb(255, 255, 255);"
+  );
+  paragraph.textContent = "Please accept cookies to access this content";
+  divElement.appendChild(paragraph);
+  document.querySelector(".YTvideosa").appendChild(divElement);
 }

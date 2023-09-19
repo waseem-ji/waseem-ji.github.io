@@ -113,54 +113,78 @@
 // //   }
 // // }
 
-document.addEventListener("cookieyes_consent_update", function (eventData) {
-  const data = eventData.detail;
-  if (data.accepted.includes("analytics")) {
-    console.log("Include analytics");
-  }
-  if (data.rejected.includes("analytics")) {
-    console.log("rejected analytics");
-  }
-});
+// document.addEventListener("cookieyes_consent_update", function (eventData) {
+//   const data = eventData.detail;
+//   if (data.accepted.includes("analytics")) {
+//     console.log("Include analytics");
+//   }
+//   if (data.rejected.includes("analytics")) {
+//     console.log("rejected analytics");
+//   }
+// });
 
-!(function () {
-  var e = [".cky-btn-accept", ".cky-btn-reject", ".cky-btn-preferences"];
-  function t(e, n) {
-    var r = document.querySelector(e);
-    if (r) {
-      var o = (function (e) {
-        return e.currentStyle
-          ? e.currentStyle.display
-          : window.getComputedStyle
-          ? window.getComputedStyle(e, null).getPropertyValue("display")
-          : "";
-      })(r);
-      if ("none" !== o && "" !== o) return n(r);
-    }
-    setTimeout(function () {
-      t(e, n);
-    }, 200);
-  }
-  function n(t) {
-    var n = document.createElement("div");
-    n.setAttribute(
-      "style",
-      "position:fixed;top:0;left:0;width:100%;height:100%;background-color:rgba(0, 0, 0, 0.5);z-index:9999;"
-    ),
-      t.parentNode.insertBefore(n, t.nextSibling);
-    for (var o = 0; o < e.length; o++) {
-      var c = document.querySelector(e[o]);
-      c && c.addEventListener("click", r(n));
-    }
-  }
-  function r(e) {
-    return function () {
-      e &&
-        e.parentNode &&
-        (e.parentNode.removeChild(e), t(".cky-consent-container", n));
-    };
-  }
-  window.addEventListener("load", function () {
-    t(".cky-consent-container", n);
-  });
-})();
+// !(function () {
+//   var e = [".cky-btn-accept", ".cky-btn-reject", ".cky-btn-preferences"];
+//   function t(e, n) {
+//     var r = document.querySelector(e);
+//     if (r) {
+//       var o = (function (e) {
+//         return e.currentStyle
+//           ? e.currentStyle.display
+//           : window.getComputedStyle
+//           ? window.getComputedStyle(e, null).getPropertyValue("display")
+//           : "";
+//       })(r);
+//       if ("none" !== o && "" !== o) return n(r);
+//     }
+//     setTimeout(function () {
+//       t(e, n);
+//     }, 200);
+//   }
+//   function n(t) {
+//     var n = document.createElement("div");
+//     n.setAttribute(
+//       "style",
+//       "position:fixed;top:0;left:0;width:100%;height:100%;background-color:rgba(0, 0, 0, 0.5);z-index:9999;"
+//     ),
+//       t.parentNode.insertBefore(n, t.nextSibling);
+//     for (var o = 0; o < e.length; o++) {
+//       var c = document.querySelector(e[o]);
+//       c && c.addEventListener("click", r(n));
+//     }
+//   }
+//   function r(e) {
+//     return function () {
+//       e &&
+//         e.parentNode &&
+//         (e.parentNode.removeChild(e), t(".cky-consent-container", n));
+//     };
+//   }
+//   window.addEventListener("load", function () {
+//     t(".cky-consent-container", n);
+//   });
+// })();
+
+const currentDomain = window.location.hostname;
+
+const scriptSources = {
+  "waseem-ji.github.io":
+    "https://cdn-cookieyes.com/client_data/1e34230167bcc72750eaaddc/script.js",
+  "site2.com":
+    "https://cdn-cookieyes.com/client_data/91282cd33324ede294817873/script.js",
+  // Add more domains and script URLs as needed
+};
+
+// Get the script source URL based on the current domain
+const scriptSrc = scriptSources[currentDomain];
+
+if (scriptSrc) {
+  // Script source found; inject the script
+  const scriptElement = document.createElement("script");
+  scriptElement.src = scriptSrc;
+  document.head.appendChild(scriptElement);
+} else {
+  // Handle the case where the current domain doesn't match any predefined script source
+  console.error("No script source found for this domain.");
+  // Optionally, provide a fallback action
+}

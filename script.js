@@ -233,7 +233,7 @@ function addPlaceholder() {
   );
   var paragraph = document.createElement("p");
   paragraph.setAttribute("class", "video-placeholder-text-youtube");
-  paragraph.setAttribute("data-cky-tag", "placeholder-title");
+  paragraph.setAttribute("data-cky-tag", "Ji was Here");
   paragraph.setAttribute(
     "style",
     "display: block; border-color: rgb(0, 0, 0); background-color: rgb(0, 0, 0); color: rgb(255, 255, 255);"

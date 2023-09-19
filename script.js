@@ -218,7 +218,7 @@ if (adsConsent) {
         addPlaceholder();
       });
     } else {
-      document.querySelector(".YTvideosa").removeChild(divElement);
+      document.querySelector(".your-class-name").removeChild(divElement);
     }
   });
 }
@@ -238,7 +238,7 @@ function addPlaceholder() {
     "style",
     "display: block; border-color: rgb(0, 0, 0); background-color: rgb(0, 0, 0); color: rgb(255, 255, 255);"
   );
-  paragraph.textContent = "Please accept cookies to access this content Ji";
+  paragraph.textContent = "Please accept cookies to access this content";
   divElement.appendChild(paragraph);
-  document.querySelector(".YTvideosa").appendChild(divElement);
+  document.querySelector(".your-class-name").appendChild(divElement);
 }

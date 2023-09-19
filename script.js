@@ -183,9 +183,9 @@ const scriptSrc = scriptSources[currentDomain];
 if (scriptSrc) {
   const scriptElement = document.createElement("script");
   scriptElement.src = scriptSrc;
-  const charsetMeta = document.querySelector('meta[charset="UTF-8"]');
+  const headElement = document.head;
 
-  // Insert the script element before the charset meta tag
-  charsetMeta.parentNode.insertBefore(scriptElement, charsetMeta);
+  // Insert the script element as the first child of the head
+  headElement.insertAdjacentElement("afterbegin", scriptElement);
   // document.head.appendChild(scriptElement);
 }

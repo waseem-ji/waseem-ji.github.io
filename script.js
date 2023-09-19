@@ -218,7 +218,7 @@ if (adsConsent) {
         addPlaceholder();
       });
     } else {
-      document.querySelector(".tab-content").removeChild(divElement);
+      document.querySelector(".YTvideosa").removeChild(divElement);
     }
   });
 }

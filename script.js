@@ -229,16 +229,16 @@ function addPlaceholder() {
   //add the corresponding height and background-image for the video they want to place the placeholder
   divElement.setAttribute(
     "style",
-    "height: 488px; background-image: linear-gradient(rgba(76, 72, 72, 0.7), rgba(76, 72, 72, 0.7)), url(https://img.youtube.com/vi/vBpQ1SlfVtU/maxresdefault.jpg);"
+    "height: 488px; background-image: linear-gradient(rgba(76, 72, 72, 0.7), rgba(76, 72, 72, 0.7));"
   );
   var paragraph = document.createElement("p");
   paragraph.setAttribute("class", "video-placeholder-text-youtube");
-  paragraph.setAttribute("data-cky-tag", "Ji was Here");
+  paragraph.setAttribute("data-cky-tag", "placeholder-title");
   paragraph.setAttribute(
     "style",
     "display: block; border-color: rgb(0, 0, 0); background-color: rgb(0, 0, 0); color: rgb(255, 255, 255);"
   );
-  paragraph.textContent = "Please accept cookies to access this content";
+  paragraph.textContent = "Please accept cookies to access this content Ji";
   divElement.appendChild(paragraph);
   document.querySelector(".YTvideosa").appendChild(divElement);
 }

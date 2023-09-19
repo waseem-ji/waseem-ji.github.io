@@ -206,7 +206,7 @@ if (cookieYesConsent) {
     adsConsent = true;
   }
 }
-if (!adsConsent) {
+if (adsConsent) {
   document.addEventListener("DOMContentLoaded", function () {
     addPlaceholder();
   });

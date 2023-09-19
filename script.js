@@ -187,58 +187,58 @@
 
 //   headElement.insertAdjacentElement("afterbegin", scriptElement);
 // }
-let cookies = document.cookie
-  .split(";")
-  .reduce(
-    (ac, cv, i) => Object.assign(ac, { [cv.split("=")[0]]: cv.split("=")[1] }),
-    {}
-  );
-const cookieYesConsent = cookies["cookieyes-consent"];
-let adsConsent = false;
-if (cookieYesConsent) {
-  const cookiePairs = cookieYesConsent.split(",").map((pair) => pair.trim());
-  const cookieObj = {};
-  cookiePairs.forEach((pair) => {
-    const [key, value] = pair.split(":");
-    cookieObj[key] = value;
-  });
-  if (cookieObj.advertisement === "yes") {
-    adsConsent = true;
-  }
-}
-if (adsConsent) {
-  document.addEventListener("DOMContentLoaded", function () {
-    addPlaceholder();
-  });
-} else {
-  document.addEventListener("cookieyes_consent_update", function (eventData) {
-    const data = eventData.detail;
-    if (!data.accepted.includes("advertisement")) {
-      document.addEventListener("DOMContentLoaded", function () {
-        addPlaceholder();
-      });
-    } else {
-      document.querySelector(".your-class-name").removeChild(divElement);
-    }
-  });
-}
-function addPlaceholder() {
-  const divElement = document.createElement("div");
-  divElement.setAttribute("class", "video-placeholder-youtube");
-  divElement.setAttribute("data-cky-tag", "video-placeholder");
-  //add the corresponding height and background-image for the video they want to place the placeholder
-  divElement.setAttribute(
-    "style",
-    "height: 488px; background-image: linear-gradient(rgba(76, 72, 72, 0.7), rgba(76, 72, 72, 0.7));"
-  );
-  var paragraph = document.createElement("p");
-  paragraph.setAttribute("class", "video-placeholder-text-youtube");
-  paragraph.setAttribute("data-cky-tag", "placeholder-title");
-  paragraph.setAttribute(
-    "style",
-    "display: block; border-color: rgb(0, 0, 0); background-color: rgb(0, 0, 0); color: rgb(255, 255, 255);"
-  );
-  paragraph.textContent = "Please accept cookies to access this content";
-  divElement.appendChild(paragraph);
-  document.querySelector(".your-class-name").appendChild(divElement);
-}
+// let cookies = document.cookie
+//   .split(";")
+//   .reduce(
+//     (ac, cv, i) => Object.assign(ac, { [cv.split("=")[0]]: cv.split("=")[1] }),
+//     {}
+//   );
+// const cookieYesConsent = cookies["cookieyes-consent"];
+// let adsConsent = false;
+// if (cookieYesConsent) {
+//   const cookiePairs = cookieYesConsent.split(",").map((pair) => pair.trim());
+//   const cookieObj = {};
+//   cookiePairs.forEach((pair) => {
+//     const [key, value] = pair.split(":");
+//     cookieObj[key] = value;
+//   });
+//   if (cookieObj.advertisement === "yes") {
+//     adsConsent = true;
+//   }
+// }
+// if (adsConsent) {
+//   document.addEventListener("DOMContentLoaded", function () {
+//     addPlaceholder();
+//   });
+// } else {
+//   document.addEventListener("cookieyes_consent_update", function (eventData) {
+//     const data = eventData.detail;
+//     if (!data.accepted.includes("advertisement")) {
+//       document.addEventListener("DOMContentLoaded", function () {
+//         addPlaceholder();
+//       });
+//     } else {
+//       document.querySelector(".your-class-name").removeChild(divElement);
+//     }
+//   });
+// }
+// function addPlaceholder() {
+//   const divElement = document.createElement("div");
+//   divElement.setAttribute("class", "video-placeholder-youtube");
+//   divElement.setAttribute("data-cky-tag", "video-placeholder");
+//   //add the corresponding height and background-image for the video they want to place the placeholder
+//   divElement.setAttribute(
+//     "style",
+//     "height: 488px; background-image: linear-gradient(rgba(76, 72, 72, 0.7), rgba(76, 72, 72, 0.7));"
+//   );
+//   var paragraph = document.createElement("p");
+//   paragraph.setAttribute("class", "video-placeholder-text-youtube");
+//   paragraph.setAttribute("data-cky-tag", "placeholder-title");
+//   paragraph.setAttribute(
+//     "style",
+//     "display: block; border-color: rgb(0, 0, 0); background-color: rgb(0, 0, 0); color: rgb(255, 255, 255);"
+//   );
+//   paragraph.textContent = "Please accept cookies to access this content";
+//   divElement.appendChild(paragraph);
+//   document.querySelector(".your-class-name").appendChild(divElement);
+// }

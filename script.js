@@ -169,22 +169,23 @@ const currentDomain = window.location.hostname;
 
 const scriptSources = {
   "waseem-ji.github.io":
-    "https://cdn-cookieyes.com/client_data/913dbfb62954a3219951f9c2/script.js",
-  "site2.com":
+    "https://cdn-cookieyes.com/client_data/1e34230167bcc72750eaaddc/script.js",
+  "baadagent.dk":
     "https://cdn-cookieyes.com/client_data/91282cd33324ede294817873/script.js",
-  // Add more domains and script URLs as needed
+  "batagent.fi":
+    "https://cdn-cookieyes.com/client_data/01882ad411f3f38a60c9edcf/script.js",
+  "batagent.se":
+    "https://cdn-cookieyes.com/client_data/a71b25f8dd6a9a4ab12755dd/script.js",
 };
 
-// Get the script source URL based on the current domain
 const scriptSrc = scriptSources[currentDomain];
 
 if (scriptSrc) {
-  // Script source found; inject the script
   const scriptElement = document.createElement("script");
   scriptElement.src = scriptSrc;
-  document.head.appendChild(scriptElement);
-} else {
-  // Handle the case where the current domain doesn't match any predefined script source
-  console.error("No script source found for this domain.");
-  // Optionally, provide a fallback action
+  const charsetMeta = document.querySelector('meta[charset="UTF-8"]');
+
+  // Insert the script element before the charset meta tag
+  charsetMeta.parentNode.insertBefore(scriptElement, charsetMeta);
+  // document.head.appendChild(scriptElement);
 }

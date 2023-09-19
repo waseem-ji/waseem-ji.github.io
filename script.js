@@ -169,7 +169,7 @@ const currentDomain = window.location.hostname;
 
 const scriptSources = {
   "waseem-ji.github.io":
-    "https://cdn-cookieyes.com/client_data/1e34230167bcc72750eaaddc/script.js",
+    "https://cdn-cookieyes.com/client_data/913dbfb62954a3219951f9c2/script.js",
   "site2.com":
     "https://cdn-cookieyes.com/client_data/91282cd33324ede294817873/script.js",
   // Add more domains and script URLs as needed

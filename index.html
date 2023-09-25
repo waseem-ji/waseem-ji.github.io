@@ -65,6 +65,7 @@
       document.addEventListener(
         "cookieyes_consent_update",
         function (eventData) {
+          const data = eventData.detail;
           gtag("set", "url_passthrough", false);
         }
       );

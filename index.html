@@ -66,7 +66,9 @@
         "cookieyes_consent_update",
         function (eventData) {
           const data = eventData.detail;
-          gtag("set", "url_passthrough", false);
+          if (data.rejected.includes("analytics")) {
+            gtag("set", "url_passthrough", false);
+          }
         }
       );
     </script>

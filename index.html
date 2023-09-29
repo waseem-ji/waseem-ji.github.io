@@ -139,14 +139,12 @@
           const data = eventData.detail;
           console.log(data);
           if (
-            data.accepted.includes(
-              "necessary",
-              "functional",
-              "analytics",
-              "performance",
-              "advertisement",
-              "other"
-            )
+            data.accepted.includes("necessary") &&
+            data.accepted.includes("functional") &&
+            data.accepted.includes("analytics") &&
+            data.accepted.includes("performance") &&
+            data.accepted.includes("advertisement") &&
+            data.accepted.includes("other")
           ) {
             console.log("all accepted");
             var element = document.querySelector(".cky-btn-revisit-wrapper");

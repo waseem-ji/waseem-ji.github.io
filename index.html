@@ -57,7 +57,7 @@
     <!-- End Google Tag Manager -->
     <!-- Start cookieyes banner -->
 
-<!--     <script
+    <!--     <script
       id="cookieyes"
       type="text/javascript"
       src="https://scriptstaging.cookieyes.com/client_data/e199c9c3be6577f54a888419/script.js"
@@ -132,21 +132,38 @@
     <!-- <div id="vimeo-placeholder">
       <p>Please accept cookies to view this video.</p>
     </div> -->
-    <!-- <script>
+    <script>
       document.addEventListener(
         "cookieyes_consent_update",
         function (eventData) {
           const data = eventData.detail;
-          if (data.accepted.includes("analytics")) {
-            // perform desired action.
-            var iframe = document.getElementById("vimeo-iframe");
-            iframe.src =
-              "https://player.vimeo.com/video/822038682?h=2b11a5bb17&dnt=true";
-            document.getElementById("vimeo-placeholder").style.display = "none";
+          if (
+            data.accepted.includes([
+              "analytics",
+              "functional",
+              "performance",
+              "other",
+              "necessary",
+              "advertisement",
+            ])
+          ) {
+            var element = document.querySelector(".cky-btn-revisit-wrapper");
+
+            // Set its style to display: none
+            if (element) {
+              element.style.display = "none";
+            }
+          } else {
+            var element = document.querySelector(".cky-btn-revisit-wrapper");
+
+            // Set its style to display: none
+            if (element) {
+              element.style.display = "flex";
+            }
           }
         }
       );
-    </script> -->
+    </script>
     <div class="YTvideosa">
       <iframe
         width="560"

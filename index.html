@@ -140,14 +140,15 @@
           console.log(data);
           if (
             data.accepted.includes([
-              "analytics",
-              "functional",
-              "performance",
-              "other",
               "necessary",
+              "functional",
+              "analytics",
+              "performance",
               "advertisement",
+              "other",
             ])
           ) {
+            console.log("all accepted");
             var element = document.querySelector(".cky-btn-revisit-wrapper");
 
             // Set its style to display: none

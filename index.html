@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="de">
+<html lang="pl">
   <head>
     <!-- Matomo Tag Manager -->
     <!-- <script>
@@ -146,18 +146,12 @@
             data.accepted.includes("advertisement") &&
             data.accepted.includes("other")
           ) {
-            console.log("all accepted");
             var element = document.querySelector(".cky-btn-revisit-wrapper");
-
-            // Set its style to display: none
             if (element) {
               element.style.display = "none";
             }
           } else {
-            console.log("Not all accepted");
             var element = document.querySelector(".cky-btn-revisit-wrapper");
-
-            // Set its style to display: none
             if (element) {
               element.style.display = "flex";
             }

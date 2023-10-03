@@ -8,13 +8,28 @@
   <!-- End cookieyes banner -->
   <script src="script.js"></script>
   <script>
-    var element = document.querySelector(".cky-consent-container");
-
-    // Check if the element exists
-    if (element) {
-      // Add the role attribute to the element
-      element.setAttribute("role", "heading");
+    var checktimeout = 0;
+    window.addEventListener("load", function () {
+      waitForElement(".cky-consent-container", function () {
+        var element = document.querySelector('.cky-consent-container');
+        // Check if the element exists
+        if (element) {
+          // Add the role attribute to the element
+          element.setAttribute('role', 'heading');
+        }
+      });
+    });
+    function waitForElement(selector, callback) {
+      const element = document.querySelector(selector);
+      if (element) return callback();
+      checktimeout++;
+      if (checktimeout < 120) {
+        setTimeout(function () {
+          waitForElement(selector, callback);
+        }, 500);
+      }
     }
+        }
   </script>
   <meta charset="UTF-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />

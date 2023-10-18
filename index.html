@@ -15,22 +15,7 @@
         f.parentNode.insertBefore(j, f);
       })(window, document, "script", "dataLayer", "GTM-MPVV9RP");
     </script>
-    <script>
-      window.YETT_WHITELIST = [/cdn-cookieyes\.com/];
-      window.YETT_BLACKLIST = [
-        /shopifyChatV1/,
-        /s3\.amazonaws\.com/,
-        /chimpstatic\.com/,
-        /cdn\.hextom\.com/,
-        /sales\.saio\.io/,
-        /cdn\.grw\.reputon\.com/,
-        /globo\.filter\.init\.js/,
-        /globo\.alsobought\.init\.js/,
-        /ne_smart_tabs/,
-        /globo\.menu\.init\.js/,
-      ];
-    </script>
-    <script src="https://unpkg.com/yett"></script>
+
     <!-- End Google Tag Manager -->
     <!-- Start cookieyes banner -->
 
@@ -81,29 +66,6 @@
       crossorigin="anonymous"
     ></script> -->
     <!-- <script src="script.js"></script> -->
-    <script>
-      var checktimeout = 0;
-      window.addEventListener("load", function () {
-        waitForElement(".cky-consent-container", function () {
-          var element = document.querySelector(".cky-consent-container");
-          // Check if the element exists
-          if (element) {
-            // Add the role attribute to the element
-            element.setAttribute("role", "heading");
-          }
-        });
-      });
-      function waitForElement(selector, callback) {
-        const element = document.querySelector(selector);
-        if (element) return callback();
-        checktimeout++;
-        if (checktimeout < 120) {
-          setTimeout(function () {
-            waitForElement(selector, callback);
-          }, 500);
-        }
-      }
-    </script>
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -131,36 +93,8 @@
     <h3>Welcome</h3>
     <a href="cookie.html">CookiePolicy </a>
 
-    <!-- <div id="vimeo-placeholder">
-      <p>Please accept cookies to view this video.</p>
-    </div> -->
-    <!-- <script>
-      document.addEventListener(
-        "cookieyes_consent_update",
-        function (eventData) {
-          const data = eventData.detail;
-          console.log(data);
-          if (
-            data.accepted.includes("necessary") &&
-            data.accepted.includes("functional") &&
-            data.accepted.includes("analytics") &&
-            data.accepted.includes("performance") &&
-            data.accepted.includes("advertisement") &&
-            data.accepted.includes("other")
-          ) {
-            var element = document.querySelector(".cky-btn-revisit-wrapper");
-            if (element) {
-              element.style.display = "none";
-            }
-          } else {
-            var element = document.querySelector(".cky-btn-revisit-wrapper");
-            if (element) {
-              element.style.display = "flex";
-            }
-          }
-        }
-      );
-    </script> -->
+    <a href="page1.html">Page1 </a>
+
     <div class="YTvideosa">
       <iframe
         width="560"

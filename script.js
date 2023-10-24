@@ -6371,7 +6371,13 @@
           return e ? btoa(n.join("")).replace(/\=+$/, "") : n.join("");
         }),
         (i._ckyIsCategoryToBeBlocked = function (t) {
+          var startTime = performance.now();
           var e = i._ckyGetFromStore(t);
+          var endTime = performance.now();
+          console.log(
+            `time taken for _ckyGetFromStore ${endTime - startTime} millis`
+          );
+
           return (
             "no" === e ||
             (!e &&
@@ -6391,7 +6397,16 @@
           return (
             e &&
             e.categories.some(function (t) {
-              return i._ckyIsCategoryToBeBlocked(t);
+              var startTime = performance.now();
+              var ji1 = i._ckyIsCategoryToBeBlocked(t);
+              var endTime = performance.now();
+              console.log(
+                `time taken for _ckyIsCategoryToBeBlocked ${
+                  endTime - startTime
+                } millis`
+              );
+
+              return ji1;
             })
           );
         }),
@@ -6500,9 +6515,11 @@
         (i._ckyGetFromStore = function (t) {
           return i._ckyConsentStore.get(t) || "";
         });
+
       var startTime = performance.now();
       var a = i._ckyGetCookieMap();
       var endTime = performance.now();
+
       console.log(`_ckyGetCookieMap =  ${endTime - startTime} millis`);
       i._ckySetInStore = function (r, n) {
         i._ckyConsentStore.set(r, n);
@@ -6525,7 +6542,10 @@
           i._ckyStore._bannerConfig && i._ckyStore._bannerConfig.scriptExpiry
             ? i._ckyStore._bannerConfig.scriptExpiry
             : 365;
+        var startTime = performance.now();
         i._ckySetCookie("cookieyes-consent", a.join(","), l);
+        var endTime = performance.now();
+        console.log(`_ckySetCookie = ${endTime - startTime}`);
       };
       var s = (a["cookieyes-consent"] || "").split(",").reduce(function (t, r) {
         if (!r) return t;
@@ -6541,7 +6561,13 @@
           })
         )
         .map(function (t) {
-          return i._ckyConsentStore.set(t, s[t] || "");
+          var startTime = performance.now();
+          var ji2 = i._ckyConsentStore.set(t, s[t] || "");
+          var endTime = performance.now();
+          console.log(
+            `time taken for _ckyConsentStore ${endTime - startTime} millis`
+          );
+          return ji2;
         }),
         (i._ckySendPageViewLog = function (t) {
           var e =
@@ -6563,13 +6589,16 @@
         }),
         (function () {
           if (!i._ckyGetFromStore("consentid")) {
+            var startTime = performance.now();
             var t = i._ckyRandomString(32);
+            var endTime = performance.now();
+            console.log(`_ckyRandomString 1 = ${endTime - startTime}`);
+
             var startTime = performance.now();
             i._ckySetInStore("consentid", t),
               (i._ckyStore._resetConsentID = !0);
             var endTime = performance.now();
             console.log(`_ckySetInStore = ${endTime - startTime}`);
-            
           }
         })(),
         i._ckySendPageViewLog("banner_load");
@@ -6740,7 +6769,12 @@
                     s = "".concat(n).concat(a).replace(/^www./, "");
                   if ((u(t, s), !i._ckyShouldBlockProvider(s)))
                     return "continue";
+
+                  var startTime = performance.now();
                   var f = i._ckyRandomString(8, !1);
+                  var endTime = performance.now();
+                  console.log(`_ckyRandomString 2 = ${endTime - startTime}`);
+
                   if ("iframe" === t.nodeName.toLowerCase())
                     c(t, f),
                       i._ckyStore._bannerAttached &&

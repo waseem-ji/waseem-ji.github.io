@@ -6501,7 +6501,7 @@
       var startTime = performance.now();
       var a = i._ckyGetCookieMap();
       var endTime = performance.now();
-      console.log("_ckyGetCookieMap =  ${endTime - startTime} millis");
+      console.log(`_ckyGetCookieMap =  ${endTime - startTime} millis`);
       i._ckySetInStore = function (r, n) {
         i._ckyConsentStore.set(r, n);
         var o,

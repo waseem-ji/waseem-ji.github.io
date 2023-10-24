@@ -6569,6 +6569,7 @@
               (i._ckyStore._resetConsentID = !0);
             var endTime = performance.now();
             console.log(`_ckySetInStore = ${endTime - startTime}`);
+            
           }
         })(),
         i._ckySendPageViewLog("banner_load");

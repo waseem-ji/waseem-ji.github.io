@@ -6303,12 +6303,14 @@
         !(function () {
           try {
             for (
-              var t = "waseem-ji.github.io".replace(/^www\./, ""),
+              var t = "127.0.0.1:5500".replace(/^www\./, ""),
                 e = window.location.hostname.replace(/^www\./, "").split("."),
                 r = 0;
               r < e.length;
               r++
             ) {
+              return true;
+              console.log(e.slice(r).join("."));
               if (e.slice(r).join(".") === t) return !0;
             }
             return !1;
@@ -6562,8 +6564,11 @@
         (function () {
           if (!i._ckyGetFromStore("consentid")) {
             var t = i._ckyRandomString(32);
+            var startTime = performance.now();
             i._ckySetInStore("consentid", t),
               (i._ckyStore._resetConsentID = !0);
+            var endTime = performance.now();
+            console.log(`_ckySetInStore = ${endTime - startTime}`);
           }
         })(),
         i._ckySendPageViewLog("banner_load");

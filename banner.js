@@ -1,4 +1,5 @@
 /******/ (() => {
+  var startTime = performance.now();
   // webpackBootstrap
   var __webpack_exports__ = {};
   /*!*******************************************!*\
@@ -1382,4 +1383,6 @@
   if (document.readyState === "complete") _ckyWindowLoadHandler();
   else window.addEventListener("load", _ckyWindowLoadHandler);
   /******/
+  var endTime = performance.now();
+  console.log(`Total Banner time  ${endTime - startTime}`);
 })();

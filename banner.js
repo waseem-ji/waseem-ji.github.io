@@ -1,3 +1,4 @@
+var startTime = performance.now();
 /******/ (() => {
   // webpackBootstrap
   /******/ var __webpack_modules__ = {
@@ -14716,3 +14717,5 @@
 
   /******/
 })();
+var endTime = performance.now();
+console.log(`time taken for script.js ${endTime - startTime} millis`);

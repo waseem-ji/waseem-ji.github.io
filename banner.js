@@ -14718,4 +14718,4 @@ var startTime = performance.now();
   /******/
 })();
 var endTime = performance.now();
-console.log(`time taken for script.js ${endTime - startTime} millis`);
+console.log(`time taken for Banner.js ${endTime - startTime} millis`);

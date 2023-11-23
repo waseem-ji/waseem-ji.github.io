@@ -1,16 +1,124 @@
-var startTime = performance.now();
-
 /******/ (() => {
   // webpackBootstrap
   /******/ var __webpack_modules__ = {
+    /***/ "./node_modules/@iabtcf/stub/lib/stub.js":
+      /*!***********************************************!*\
+  !*** ./node_modules/@iabtcf/stub/lib/stub.js ***!
+  \***********************************************/
+      /***/ (module) => {
+        "use strict";
+        function _typeof(t) {
+          return (_typeof =
+            "function" == typeof Symbol && "symbol" == typeof Symbol.iterator
+              ? function (t) {
+                  return typeof t;
+                }
+              : function (t) {
+                  return t &&
+                    "function" == typeof Symbol &&
+                    t.constructor === Symbol &&
+                    t !== Symbol.prototype
+                    ? "symbol"
+                    : typeof t;
+                })(t);
+        }
+        !(function () {
+          var t = function () {
+            var t,
+              e,
+              o = [],
+              n = window,
+              r = n;
+            for (; r; ) {
+              try {
+                if (r.frames.__tcfapiLocator) {
+                  t = r;
+                  break;
+                }
+              } catch (t) {}
+              if (r === n.top) break;
+              r = r.parent;
+            }
+            t ||
+              (!(function t() {
+                var e = n.document,
+                  o = !!n.frames.__tcfapiLocator;
+                if (!o)
+                  if (e.body) {
+                    var r = e.createElement("iframe");
+                    (r.style.cssText = "display:none"),
+                      (r.name = "__tcfapiLocator"),
+                      e.body.appendChild(r);
+                  } else setTimeout(t, 5);
+                return !o;
+              })(),
+              (n.__tcfapi = function () {
+                for (
+                  var t = arguments.length, n = new Array(t), r = 0;
+                  r < t;
+                  r++
+                )
+                  n[r] = arguments[r];
+                if (!n.length) return o;
+                "setGdprApplies" === n[0]
+                  ? n.length > 3 &&
+                    2 === parseInt(n[1], 10) &&
+                    "boolean" == typeof n[3] &&
+                    ((e = n[3]), "function" == typeof n[2] && n[2]("set", !0))
+                  : "ping" === n[0]
+                  ? "function" == typeof n[2] &&
+                    n[2]({ gdprApplies: e, cmpLoaded: !1, cmpStatus: "stub" })
+                  : o.push(n);
+              }),
+              n.addEventListener(
+                "message",
+                function (t) {
+                  var e = "string" == typeof t.data,
+                    o = {};
+                  if (e)
+                    try {
+                      o = JSON.parse(t.data);
+                    } catch (t) {}
+                  else o = t.data;
+                  var n =
+                    "object" === _typeof(o) && null !== o
+                      ? o.__tcfapiCall
+                      : null;
+                  n &&
+                    window.__tcfapi(
+                      n.command,
+                      n.version,
+                      function (o, r) {
+                        var a = {
+                          __tcfapiReturn: {
+                            returnValue: o,
+                            success: r,
+                            callId: n.callId,
+                          },
+                        };
+                        t &&
+                          t.source &&
+                          t.source.postMessage &&
+                          t.source.postMessage(e ? JSON.stringify(a) : a, "*");
+                      },
+                      n.parameter
+                    );
+                },
+                !1
+              ));
+          };
+          true ? (module.exports = t) : 0;
+        })();
+
+        /***/
+      },
+
     /***/ "./node_modules/classlist-polyfill/src/index.js":
       /*!******************************************************!*\
-  !*** ./node_modules/classlist-polyfill/src/index.js ***!
-  \******************************************************/
-
+    !*** ./node_modules/classlist-polyfill/src/index.js ***!
+    \******************************************************/
       /***/ () => {
         /*
-        
          * classList.js: Cross-browser full element.classList implementation.
          * 1.1.20170427
          *
@@ -22,7 +130,6 @@ var startTime = performance.now();
         /*global self, document, DOMException */
 
         /*! @source http://purl.eligrey.com/github/classList.js/blob/master/classList.js */
-        // const startTime = performance.now();
 
         if ("document" in window.self) {
           // Full polyfill for browsers with no classList support
@@ -251,12 +358,6 @@ var startTime = performance.now();
           })();
         }
 
-        // const endTime = performance.now();
-        // console.log(
-        //   `Cross-browser full element.classList implementation, first function = ${
-        //     endTime - startTime
-        //   }`
-        // );
         /***/
       },
 
@@ -265,7 +366,6 @@ var startTime = performance.now();
     !*** ./node_modules/custom-event-polyfill/polyfill.js ***!
     \********************************************************/
       /***/ () => {
-        // const startTime = performance.now();
         // Polyfill for creating CustomEvents on IE9/10/11
 
         // code pulled from:
@@ -319,12 +419,7 @@ var startTime = performance.now();
             window.CustomEvent = CustomEvent; // expose definition to window
           }
         })();
-        // const endTime = performance.now();
-        // console.log(
-        //   `Polyfill for creating CustomEvents on IE9/10/11 ${
-        //     endTime - startTime
-        //   }`
-        // );
+
         /***/
       },
 
@@ -333,7 +428,6 @@ var startTime = performance.now();
     !*** ./node_modules/navigator.sendbeacon/dist/navigator.sendbeacon.es.js ***!
     \***************************************************************************/
       /***/ () => {
-        // const startTime = performance.now();
         function _typeof(obj) {
           if (
             typeof Symbol === "function" &&
@@ -407,12 +501,7 @@ var startTime = performance.now();
 
           return true;
         }
-        // const endTime = performance.now();
-        // console.log(
-        //   `./node_modules/navigator.sendbeacon/dist/navigator.sendbeacon.es.js Third function ${
-        //     endTime - startTime
-        //   } `
-        // );
+
         /***/
       },
 
@@ -425,8 +514,7 @@ var startTime = performance.now();
         __webpack_exports__,
         __webpack_require__
       ) => {
-        // var startTime = performance.now();
-        ("use strict");
+        "use strict";
         __webpack_require__.r(__webpack_exports__);
         /* harmony export */ __webpack_require__.d(__webpack_exports__, {
           /* harmony export */ DOMException: () => /* binding */ DOMException,
@@ -1104,10 +1192,7 @@ var startTime = performance.now();
           global.Request = Request;
           global.Response = Response;
         }
-        // var endTime = performance.now();
-        // console.log(
-        //   `./node_modules/whatwg-fetch/fetch.js = ${endTime - startTime}`
-        // );
+
         /***/
       },
 
@@ -1119,7 +1204,6 @@ var startTime = performance.now();
   /******/
   /******/ // The require function
   /******/ function __webpack_require__(moduleId) {
-    // var startTime = performance.now();
     /******/ // Check if module is in cache
     /******/ var cachedModule = __webpack_module_cache__[moduleId];
     /******/ if (cachedModule !== undefined) {
@@ -1140,8 +1224,6 @@ var startTime = performance.now();
       module.exports,
       __webpack_require__
     );
-    // var endTime = performance.now();
-    // console.log(`__webpack_require__ = ${endTime - startTime}`);
     /******/
     /******/ // Return the exports of the module
     /******/ return module.exports;
@@ -1245,7 +1327,7 @@ var startTime = performance.now();
   // This entry need to be wrapped in an IIFE because it need to be isolated against other entry modules.
   (() => {
     /*!*******************************************!*\
-    !*** ./mcqwKa8MYDuvTOYBhHnqV-original.js ***!
+    !*** ./-51Hy7kvwQk4Mfk4p6NBw-original.js ***!
     \*******************************************/
     function _ckyCheckDomain() {
       try {
@@ -1259,7 +1341,7 @@ var startTime = performance.now();
           if (domain === registered) return true;
         }
 
-        return true;
+        return false;
       } catch (error) {
         return false;
       }
@@ -1269,6 +1351,18 @@ var startTime = performance.now();
       throw new Error(
         `It looks like your website URL has been changed. To ensure the proper functioning of your banner, update the registered URL on your CookieYes account (More > Site Settings) and reload this page to retry. If the issue persists, contact us at https://www.cookieyes.com/support.`
       );
+    const currentPage = (
+      window.location.origin + window.location.pathname
+    ).replace(/\/$/, "");
+    const pagesToHideBanner = [
+      "^google\\.com/[^ ]*$",
+      "^https://scan-behind-login\\.vercel\\.app/abc[^ ]*$",
+      "^https://scan-behind-login\\.vercel\\.app/[^ ]*$",
+      "^https://wordpress-273836-3134021\\.cloudwaysapps\\.com/abc[^ ]*$",
+    ];
+    const hideBannerInCurrentPage = pagesToHideBanner.some((pattern) =>
+      currentPage.match(pattern)
+    );
     window.cookieyes = window.cookieyes || {};
     const ref = window.cookieyes;
 
@@ -1348,175 +1442,172 @@ var startTime = performance.now();
       );
     };
 
-    ref._ckyStore = {
-      _backupNodes: [],
-      _categories: [
-        {
-          slug: "necessary",
-          isNecessary: true,
-          defaultConsent: {
-            gdpr: true,
-            ccpa: true,
-          },
-          cookies: [
-            {
-              cookieID: "cookieyes-consent",
-              domain: ".play.reelcrafter.com",
-            },
-          ],
-        },
-        {
-          slug: "functional",
-          isNecessary: false,
-          defaultConsent: {
-            gdpr: false,
-            ccpa: false,
-          },
-          cookies: [],
-        },
-        {
-          slug: "analytics",
-          isNecessary: false,
-          defaultConsent: {
-            gdpr: false,
-            ccpa: false,
-          },
-          cookies: [
-            {
-              cookieID: "gtm",
-              domain: "gtm",
-            },
-          ],
-        },
-        {
-          slug: "performance",
-          isNecessary: false,
-          defaultConsent: {
-            gdpr: false,
-            ccpa: false,
-          },
-          cookies: [],
-        },
-        {
-          slug: "advertisement",
-          isNecessary: false,
-          defaultConsent: {
-            gdpr: false,
-            ccpa: false,
-          },
-          cookies: [],
-        },
-        {
-          slug: "other",
-          isNecessary: false,
-          defaultConsent: {
-            gdpr: false,
-            ccpa: false,
-          },
-          cookies: [
-            {
-              cookieID: "CloudFront-Key-Pair-Id",
-              domain: ".reelcrafter.com",
-            },
-            {
-              cookieID: "CloudFront-Signature",
-              domain: ".reelcrafter.com",
-            },
-            {
-              cookieID: "CloudFront-Policy",
-              domain: ".reelcrafter.com",
-            },
-          ],
-        },
-      ],
-      _providersToBlock: [
-        {
-          url: "www.googletagmanager.com",
-          categories: ["analytics"],
-          fullPath: false,
-        },
-      ],
-      _rootDomain: "waseem-ji.github.io",
-      _commonShortCodes: [
-        {
-          key: "cky_audit_table",
-          content: {
-            container: '<ul class="cky-cookie-des-table">[CONTENT]</ul>',
-          },
-          uiTag: "audit-table",
-          type: "data",
-          customTag: "",
-          attributes: {},
-        },
-        {
-          key: "cky_outside_audit_table",
-          content: {
-            container:
-              '<h3>[cky_preference_{{category_slug}}_title]</h3><div class="cky-category-des">[cky_preference_{{category_slug}}_description]</div><div class="cky-table-wrapper"><table class="cky-cookie-audit-table">[CONTENT]</tbody></table></div>',
-          },
-          uiTag: "video-placeholder",
-          type: "data",
-          customTag: "",
-          attributes: {},
-        },
-        {
-          key: "cky_audit_table_empty",
-          content: {
-            container:
-              '<p class="cky-empty-cookies-text">[cky_audit_table_empty_text]</p>',
-          },
-          uiTag: "audit-table",
-          type: "data",
-          customTag: "",
-          attributes: {},
-        },
-      ],
-      _resetConsentID: false,
-      _bannerAttached: false,
-      _gpcStatus: !!navigator.globalPrivacyControl,
-    };
-    ref._ckyConsentStore = new Map();
-
-    ref._ckyGetFromStore = function (key) {
-      return ref._ckyConsentStore.get(key) || "";
+    ref._ckyStartsWith = function (source, search) {
+      return source.slice(0, search.length) === search;
     };
 
-    let currentCookieMap = ref._ckyGetCookieMap();
-
-    ref._ckySetInStore = function (key, value) {
-      ref._ckyConsentStore.set(key, value);
-
-      const cookieStringArray = [];
-
-      for (const [key, value] of ref._ckyConsentStore) {
-        cookieStringArray.push(`${key}:${value}`);
-      }
-
-      const scriptExpiry =
-        ref._ckyStore._bannerConfig && ref._ckyStore._bannerConfig.scriptExpiry
-          ? ref._ckyStore._bannerConfig.scriptExpiry
-          : 365;
-
-      ref._ckySetCookie(
-        "cookieyes-consent",
-        cookieStringArray.join(","),
-        scriptExpiry
-      );
+    ref._ckyReplaceAll = function (source, target, replacer) {
+      return source.replace(new RegExp(_ckyEscapeRegex(target), "g"), replacer);
     };
 
-    let cookieyesConsentMap = (currentCookieMap["cookieyes-consent"] || "")
-      .split(",")
-      .reduce((prev, curr) => {
-        if (!curr) return prev;
-        const [key, value] = curr.split(":");
-        prev[key] = value;
-        return prev;
-      }, {});
-    ["consentid", "consent", "action"]
-      .concat(ref._ckyStore._categories.map(({ slug }) => slug))
-      .map((item) =>
-        ref._ckyConsentStore.set(item, cookieyesConsentMap[item] || "")
-      );
+    if (!hideBannerInCurrentPage) {
+      ref._ckyStore = {
+        _backupNodes: [],
+        _categories: [
+          {
+            slug: "necessary",
+            isNecessary: true,
+            defaultConsent: {
+              gdpr: true,
+              ccpa: true,
+            },
+            cookies: [],
+          },
+          {
+            slug: "functional",
+            isNecessary: false,
+            defaultConsent: {
+              gdpr: false,
+              ccpa: false,
+            },
+            cookies: [],
+          },
+          {
+            slug: "analytics",
+            isNecessary: false,
+            defaultConsent: {
+              gdpr: false,
+              ccpa: false,
+            },
+            cookies: [
+              {
+                cookieID: "test",
+                domain: "test",
+              },
+            ],
+          },
+          {
+            slug: "performance",
+            isNecessary: false,
+            defaultConsent: {
+              gdpr: false,
+              ccpa: false,
+            },
+            cookies: [],
+          },
+          {
+            slug: "advertisement",
+            isNecessary: false,
+            defaultConsent: {
+              gdpr: false,
+              ccpa: false,
+            },
+            cookies: [],
+          },
+          {
+            slug: "other",
+            isNecessary: false,
+            defaultConsent: {
+              gdpr: false,
+              ccpa: false,
+            },
+            cookies: [
+              {
+                cookieID: "loggedIn",
+                domain: "scan-behind-login.vercel.app",
+              },
+            ],
+          },
+        ],
+        _providersToBlock: [],
+        _rootDomain: "waseem-ji.github.io",
+        _commonShortCodes: [
+          {
+            key: "cky_audit_table",
+            content: {
+              container: '<ul class="cky-cookie-des-table">[CONTENT]</ul>',
+            },
+            uiTag: "audit-table",
+            type: "data",
+            customTag: "",
+            attributes: {},
+          },
+          {
+            key: "cky_outside_audit_table",
+            content: {
+              container:
+                '<h3>[cky_preference_{{category_slug}}_title]</h3><div class="cky-category-des">[cky_preference_{{category_slug}}_description]</div><div class="cky-table-wrapper"><table class="cky-cookie-audit-table">[CONTENT]</tbody></table></div>',
+            },
+            uiTag: "video-placeholder",
+            type: "data",
+            customTag: "",
+            attributes: {},
+          },
+          {
+            key: "cky_audit_table_empty",
+            content: {
+              container:
+                '<p class="cky-empty-cookies-text">[cky_audit_table_empty_text]</p>',
+            },
+            uiTag: "audit-table",
+            type: "data",
+            customTag: "",
+            attributes: {},
+          },
+        ],
+        _resetConsentID: false,
+        _bannerAttached: false,
+        _gpcStatus: !!navigator.globalPrivacyControl,
+      };
+      ref._ckyConsentStore = new Map();
+
+      ref._ckyGetFromStore = function (key) {
+        return ref._ckyConsentStore.get(key) || "";
+      };
+
+      let currentCookieMap = ref._ckyGetCookieMap();
+
+      ref._ckySetInStore = function (key, value) {
+        ref._ckyConsentStore.set(key, value);
+
+        const cookieStringArray = [];
+
+        for (const [key, value] of ref._ckyConsentStore) {
+          cookieStringArray.push(`${key}:${value}`);
+        }
+
+        const scriptExpiry =
+          ref._ckyStore._bannerConfig &&
+          ref._ckyStore._bannerConfig.scriptExpiry
+            ? ref._ckyStore._bannerConfig.scriptExpiry
+            : 365;
+
+        ref._ckySetCookie(
+          "cookieyes-consent",
+          cookieStringArray.join(","),
+          scriptExpiry
+        );
+      };
+
+      let cookieyesConsentMap = (currentCookieMap["cookieyes-consent"] || "")
+        .split(",")
+        .reduce((prev, curr) => {
+          if (!curr) return prev;
+          const [key, value] = curr.split(":");
+          prev[key] = value;
+          return prev;
+        }, {});
+      ["consentid", "consent", "action"]
+        .concat(ref._ckyStore._categories.map(({ slug }) => slug))
+        .map((item) =>
+          ref._ckyConsentStore.set(item, cookieyesConsentMap[item] || "")
+        );
+      const currentTCFData = (currentCookieMap["euconsent"] || "").split(",");
+      Object.assign(ref._ckyStore, {
+        _prevTCString: currentTCFData[0] || "",
+        _prevGoogleACMString: currentTCFData[1] || "",
+      });
+    }
 
     function _ckySetConsentID() {
       const cookieyesID = ref._ckyGetFromStore("consentid");
@@ -1533,11 +1624,13 @@ var startTime = performance.now();
     ref._ckySendPageViewLog = function (requestType, bannerID = "") {
       try {
         const payload = {
-          consent_session_id: ref._ckyGetFromStore("consentid"),
+          consent_session_id: hideBannerInCurrentPage
+            ? ref._ckyRandomString(32)
+            : ref._ckyGetFromStore("consentid"),
           banner_id: bannerID,
         };
         const data = new FormData();
-        data.append("key", "abc81dc5cb41faf0dd9d8591");
+        data.append("key", "280f518a0b1e3917d21825b3");
         data.append("request_type", requestType);
         data.append("event_log_time", Math.round(Date.now() / 1000));
         data.append("payload", JSON.stringify(payload));
@@ -1547,67 +1640,17 @@ var startTime = performance.now();
       }
     };
 
-    _ckySetConsentID();
+    if (!hideBannerInCurrentPage) {
+      const cmpstub = __webpack_require__(
+        /*! @iabtcf/stub */ "./node_modules/@iabtcf/stub/lib/stub.js"
+      );
+
+      cmpstub();
+
+      _ckySetConsentID();
+    }
 
     ref._ckySendPageViewLog("banner_load");
-
-    try {
-      ref._ckyCreateElementBackup = document.createElement;
-
-      document.createElement = (...args) => {
-        const createdElement = ref._ckyCreateElementBackup.call(
-          document,
-          ...args
-        );
-
-        if (createdElement.nodeName.toLowerCase() !== "script")
-          return createdElement;
-        const originalSetAttribute =
-          createdElement.setAttribute.bind(createdElement);
-        Object.defineProperties(createdElement, {
-          src: {
-            get: function () {
-              return createdElement.getAttribute("src") || "";
-            },
-            set: function (value) {
-              if (_ckyShouldChangeType(createdElement, value))
-                originalSetAttribute("type", "javascript/blocked");
-              originalSetAttribute("src", value);
-              return true;
-            },
-            configurable: true,
-          },
-          type: {
-            get: function () {
-              return createdElement.getAttribute("type");
-            },
-            set: function (value) {
-              value = _ckyShouldChangeType(createdElement)
-                ? "javascript/blocked"
-                : value;
-              originalSetAttribute("type", value);
-              return true;
-            },
-            configurable: true,
-          },
-        });
-
-        createdElement.setAttribute = (name, value) => {
-          if (name === "type" || name === "src")
-            return (createdElement[name] = value);
-          originalSetAttribute(name, value);
-          if (
-            name === "data-cookieyes" &&
-            !_ckyShouldChangeType(createdElement)
-          )
-            originalSetAttribute("type", "text/javascript");
-        };
-
-        return createdElement;
-      };
-    } catch (error) {
-      console.error(error);
-    }
 
     function _ckyMutationObserver(mutations) {
       for (const { addedNodes } of mutations) {
@@ -1620,7 +1663,7 @@ var startTime = performance.now();
             continue;
 
           try {
-            const urlToParse = node.src.startsWith("//")
+            const urlToParse = ref._ckyStartsWith(node.src, "//")
               ? `${window.location.protocol}${node.src}`
               : node.src;
             const { hostname, pathname } = new URL(urlToParse);
@@ -1747,21 +1790,85 @@ var startTime = performance.now();
       );
     }
 
-    ref._nodeListObserver = new MutationObserver(_ckyMutationObserver);
+    function _ckyEnableBlocker() {
+      try {
+        ref._ckyCreateElementBackup = document.createElement;
 
-    ref._nodeListObserver.observe(document.documentElement, {
-      childList: true,
-      subtree: true,
-    });
+        document.createElement = (...args) => {
+          const createdElement = ref._ckyCreateElementBackup.call(
+            document,
+            ...args
+          );
 
-    const bannerScript = document.createElement("script");
-    bannerScript.src = `banner.js`;
-    bannerScript.async = true;
-    bannerScript.id = "cookieyes-banner";
-    document.head.appendChild(bannerScript);
+          if (createdElement.nodeName.toLowerCase() !== "script")
+            return createdElement;
+          const originalSetAttribute =
+            createdElement.setAttribute.bind(createdElement);
+          Object.defineProperties(createdElement, {
+            src: {
+              get: function () {
+                return createdElement.getAttribute("src") || "";
+              },
+              set: function (value) {
+                if (_ckyShouldChangeType(createdElement, value))
+                  originalSetAttribute("type", "javascript/blocked");
+                originalSetAttribute("src", value);
+                return true;
+              },
+              configurable: true,
+            },
+            type: {
+              get: function () {
+                return createdElement.getAttribute("type");
+              },
+              set: function (value) {
+                value = _ckyShouldChangeType(createdElement)
+                  ? "javascript/blocked"
+                  : value;
+                originalSetAttribute("type", value);
+                return true;
+              },
+              configurable: true,
+            },
+          });
+
+          createdElement.setAttribute = (name, value) => {
+            if (name === "type" || name === "src")
+              return (createdElement[name] = value);
+            originalSetAttribute(name, value);
+            if (
+              name === "data-cookieyes" &&
+              !_ckyShouldChangeType(createdElement)
+            )
+              originalSetAttribute("type", "text/javascript");
+          };
+
+          return createdElement;
+        };
+      } catch (error) {
+        console.error(error);
+      }
+
+      ref._nodeListObserver = new MutationObserver(_ckyMutationObserver);
+
+      ref._nodeListObserver.observe(document.documentElement, {
+        childList: true,
+        subtree: true,
+      });
+    }
+
+    if (!hideBannerInCurrentPage) {
+      _ckyEnableBlocker();
+    }
+
+    if (!hideBannerInCurrentPage) {
+      const bannerScript = document.createElement("script");
+      bannerScript.src = `https://cdn-cookieyes.com/client_data/280f518a0b1e3917d21825b3/banner.js`;
+      bannerScript.async = true;
+      bannerScript.id = "cookieyes-banner";
+      document.head.appendChild(bannerScript);
+    }
   })();
 
   /******/
 })();
-var endTime = performance.now();
-console.log(`Script total ${endTime - startTime}`);

@@ -1863,7 +1863,7 @@
 
     if (!hideBannerInCurrentPage) {
       const bannerScript = document.createElement("script");
-      bannerScript.src = `https://cdn-cookieyes.com/client_data/280f518a0b1e3917d21825b3/banner.js`;
+      bannerScript.src = `banner.js`;
       bannerScript.async = true;
       bannerScript.id = "cookieyes-banner";
       document.head.appendChild(bannerScript);

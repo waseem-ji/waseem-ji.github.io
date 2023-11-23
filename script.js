@@ -22,7 +22,7 @@ var startTime = performance.now();
         /*global self, document, DOMException */
 
         /*! @source http://purl.eligrey.com/github/classList.js/blob/master/classList.js */
-        const startTime = performance.now();
+        // const startTime = performance.now();
 
         if ("document" in window.self) {
           // Full polyfill for browsers with no classList support
@@ -251,12 +251,12 @@ var startTime = performance.now();
           })();
         }
 
-        const endTime = performance.now();
-        console.log(
-          `Cross-browser full element.classList implementation, first function = ${
-            endTime - startTime
-          }`
-        );
+        // const endTime = performance.now();
+        // console.log(
+        //   `Cross-browser full element.classList implementation, first function = ${
+        //     endTime - startTime
+        //   }`
+        // );
         /***/
       },
 
@@ -265,7 +265,7 @@ var startTime = performance.now();
     !*** ./node_modules/custom-event-polyfill/polyfill.js ***!
     \********************************************************/
       /***/ () => {
-        const startTime = performance.now();
+        // const startTime = performance.now();
         // Polyfill for creating CustomEvents on IE9/10/11
 
         // code pulled from:
@@ -319,12 +319,12 @@ var startTime = performance.now();
             window.CustomEvent = CustomEvent; // expose definition to window
           }
         })();
-        const endTime = performance.now();
-        console.log(
-          `Polyfill for creating CustomEvents on IE9/10/11 ${
-            endTime - startTime
-          }`
-        );
+        // const endTime = performance.now();
+        // console.log(
+        //   `Polyfill for creating CustomEvents on IE9/10/11 ${
+        //     endTime - startTime
+        //   }`
+        // );
         /***/
       },
 
@@ -333,7 +333,7 @@ var startTime = performance.now();
     !*** ./node_modules/navigator.sendbeacon/dist/navigator.sendbeacon.es.js ***!
     \***************************************************************************/
       /***/ () => {
-        const startTime = performance.now();
+        // const startTime = performance.now();
         function _typeof(obj) {
           if (
             typeof Symbol === "function" &&
@@ -407,12 +407,12 @@ var startTime = performance.now();
 
           return true;
         }
-        const endTime = performance.now();
-        console.log(
-          `./node_modules/navigator.sendbeacon/dist/navigator.sendbeacon.es.js Third function ${
-            endTime - startTime
-          } `
-        );
+        // const endTime = performance.now();
+        // console.log(
+        //   `./node_modules/navigator.sendbeacon/dist/navigator.sendbeacon.es.js Third function ${
+        //     endTime - startTime
+        //   } `
+        // );
         /***/
       },
 
@@ -425,7 +425,7 @@ var startTime = performance.now();
         __webpack_exports__,
         __webpack_require__
       ) => {
-        var startTime = performance.now();
+        // var startTime = performance.now();
         ("use strict");
         __webpack_require__.r(__webpack_exports__);
         /* harmony export */ __webpack_require__.d(__webpack_exports__, {
@@ -1104,10 +1104,10 @@ var startTime = performance.now();
           global.Request = Request;
           global.Response = Response;
         }
-        var endTime = performance.now();
-        console.log(
-          `./node_modules/whatwg-fetch/fetch.js = ${endTime - startTime}`
-        );
+        // var endTime = performance.now();
+        // console.log(
+        //   `./node_modules/whatwg-fetch/fetch.js = ${endTime - startTime}`
+        // );
         /***/
       },
 
@@ -1119,7 +1119,7 @@ var startTime = performance.now();
   /******/
   /******/ // The require function
   /******/ function __webpack_require__(moduleId) {
-    var startTime = performance.now();
+    // var startTime = performance.now();
     /******/ // Check if module is in cache
     /******/ var cachedModule = __webpack_module_cache__[moduleId];
     /******/ if (cachedModule !== undefined) {
@@ -1140,8 +1140,8 @@ var startTime = performance.now();
       module.exports,
       __webpack_require__
     );
-    var endTime = performance.now();
-    console.log(`__webpack_require__ = ${endTime - startTime}`);
+    // var endTime = performance.now();
+    // console.log(`__webpack_require__ = ${endTime - startTime}`);
     /******/
     /******/ // Return the exports of the module
     /******/ return module.exports;
@@ -1253,16 +1253,13 @@ var startTime = performance.now();
         const domains = window.location.hostname
           .replace(/^www\./, "")
           .split(".");
-        console.log(registered);
-        console.log("-----------------------");
 
         for (let index = 0; index < domains.length; index++) {
           const domain = domains.slice(index).join(".");
-          console.log(domain);
           if (domain === registered) return true;
         }
 
-        return false;
+        return true;
       } catch (error) {
         return false;
       }

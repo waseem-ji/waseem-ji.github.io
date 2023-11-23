@@ -1331,19 +1331,27 @@
     const data = await response.json();
     data.shouldFollowGPC = data.respectGPC && ref._ckyStore._gpcStatus;
     ref._ckyStore._bannerConfig = data;
+
     await _ckySetupTranslation();
 
+    var startTime = performance.now();
     _ckyAttachBannerToUI();
+    var endTime = performance.now();
+    console.log(`_ckyAttachBannerToUI time = ${endTime - startTime}`);
 
     const actionState = ref._ckyGetFromStore("action");
-
+    console.log(`ActionState = ${actionState}`);
     if (!actionState) {
+      var startTime = performance.now();
       _ckySetInitialState();
-
+      var endTime = performance.now();
+      console.log(`_ckySetInitialState time = ${endTime - startTime}`);
       return _ckyBannerControl();
     }
-
+    var startTime = performance.now();
     _ckySetGoogleConsentMode();
+    var endTime = performance.now();
+    console.log(`_ckySetGoogleConsentMode time = ${endTime - startTime}`);
 
     if (ref._ckyStore._isPreview) {
       _ckyBannerControl();
@@ -1353,17 +1361,23 @@
   async function _ckyWindowLoadHandler(event) {
     try {
       if (event) window.removeEventListener("load", _ckyWindowLoadHandler);
+      // var startTime = performance.now();
       const bannerID = await _ckyFindApplyingRule();
-
+      // var endTime = performance.now();
+      console.log(bannerID);
       if (!bannerID) {
+        var startTime = performance.now();
         _ckyAllowAll();
-
+        var endTime = performance.now();
+        console.log(`_ckyAllowAll time = ${endTime - startTime}`);
         await _ckySetupTranslation();
 
         ref._ckySendPageViewLog("banner_hide");
       } else {
+        var startTime = performance.now();
         await _ckySetupBanner(bannerID);
-
+        var endTime = performance.now();
+        console.log(`_ckySetupBanner time = ${endTime - startTime}`);
         for (const category of ref._ckyStore._categories) {
           if (ref._ckyGetFromStore(category.slug) !== "yes")
             _ckyRemoveDeadCookies(category);
@@ -1380,8 +1394,17 @@
     }
   }
 
-  if (document.readyState === "complete") _ckyWindowLoadHandler();
-  else window.addEventListener("load", _ckyWindowLoadHandler);
+  if (document.readyState === "complete") {
+    var startTime = performance.now();
+    _ckyWindowLoadHandler();
+    var endTime = performance.now();
+    console.log(`_ckyWindowLoadHandler in  if L1387  ${endTime - startTime}`);
+  } else {
+    var startTime = performance.now();
+    window.addEventListener("load", _ckyWindowLoadHandler);
+    var endTime = performance.now();
+    console.log(`_ckyWindowLoadHandler in  else L1390  ${endTime - startTime}`);
+  }
   /******/
   var endTime = performance.now();
   console.log(`Total Banner time  ${endTime - startTime}`);

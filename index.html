@@ -19,75 +19,48 @@
           }, 500);
         }
       }
-      // window.addEventListener("DOMContentLoaded", function () {
-      //   waitForElement(".cky-consent-container", function () {});
-      // });
-      !(function (f, b, e, v, n, t, s) {
-        if (f.fbq) return;
-        n = f.fbq = function () {
-          n.callMethod
-            ? n.callMethod.apply(n, arguments)
-            : n.queue.push(arguments);
-        };
-        if (!f._fbq) f._fbq = n;
-        n.push = n;
-        n.loaded = !0;
-        n.version = "2.0";
-        n.queue = [];
-        t = b.createElement(e);
-        t.async = !0;
-        t.src = v;
-        s = b.getElementsByTagName(e)[0];
-        s.parentNode.insertBefore(t, s);
-      })(
-        window,
-        document,
-        "script",
-        "https://connect.facebook.net/en_US/fbevents.js"
-      );
-      fbq("consent", "revoke");
-      fbq("init", "{your-facebook-pixel-id}");
-      fbq("track", "PageView");
 
       document.addEventListener(
         "cookieyes_consent_update",
         function (eventData) {
           const data = eventData.detail;
-          if (data.accepted.includes("advertisement")) {
-            fbq("consent", "grant");
-            console.log("grantewd through banner interaction");
+          if (
+            data.accepted.includes("functional") &&
+            !document.getElementById("google-fonts-styles")
+          ) {
+            const head = document.getElementsByTagName("head")[0];
+            const link = document.createElement("link");
+            link.id = "google-fonts-styles";
+            link.rel = "stylesheet";
+            link.type = "text/css";
+            link.href =
+              "https://fonts.googleapis.com/css?family=Open+Sans:wght@300&display=swap";
+            head.appendChild(link);
+            console.log("consent grated through banner interaction");
           }
         }
       );
 
       waitForElement(".cky-consent-container", function () {
         const consent = getCkyConsent();
-        if (consent.categories.advertisement) {
-          fbq("consent", "grant");
-          console.log("grant checked through api call");
+        console.log(consent);
+        if (
+          consent.categories.functional &&
+          !document.getElementById("google-fonts-styles")
+        ) {
+          const head = document.getElementsByTagName("head")[0];
+          const link = document.createElement("link");
+          link.id = "google-fonts-styles";
+          link.rel = "stylesheet";
+          link.type = "text/css";
+          link.href =
+            "https://fonts.googleapis.com/css?family=Open+Sans:wght@300&display=swap";
+          head.appendChild(link);
+          console.log("sonsetn granted through api");
         }
       });
     </script>
-    <script>
-      document.addEventListener(
-        "cookieyes_consent_update",
-        function (eventData) {
-          const data = eventData.detail;
-          if (
-            data.accepted.includes(
-              "necessary",
-              "analytics",
-              "advertisement",
-              "functional",
-              "performance",
-              "other",
-            )
-          ) {
-            console.log("all accepted");
-          }
-        }
-      );
-    </script>
+
     <!-- End cookieyes banner -->
     <!-- Google Tag Manager -->
     <!-- <script>

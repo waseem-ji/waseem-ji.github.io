@@ -36,7 +36,6 @@
             link.href =
               "https://fonts.googleapis.com/css?family=Open+Sans:wght@300&display=swap";
             head.appendChild(link);
-            console.log("consent grated through banner interaction");
           }
         }
       );
@@ -56,9 +55,38 @@
           link.href =
             "https://fonts.googleapis.com/css?family=Open+Sans:wght@300&display=swap";
           head.appendChild(link);
-          console.log("sonsetn granted through api");
         }
       });
+    </script>
+
+    <script>
+      var checktimeout = 0;
+
+      window.addEventListener("load", function () {
+        waitForElement(".cky-notice-des", function () {
+          const rejectElem = document
+            .querySelector(".cky-notice-des")
+            .querySelector("u");
+          if (rejectElem) {
+            rejectElem.addEventListener("click", function () {
+              performBannerAction("reject");
+            });
+          }
+        });
+      });
+
+      function waitForElement(selector, callback) {
+        const element = document.querySelector(selector);
+        if (element) {
+          return callback();
+        }
+        checktimeout++;
+        if (checktimeout < 120) {
+          setTimeout(function () {
+            waitForElement(selector, callback);
+          }, 500);
+        }
+      }
     </script>
 
     <!-- End cookieyes banner -->

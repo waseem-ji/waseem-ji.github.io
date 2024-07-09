@@ -11,9 +11,15 @@
     <!-- End cookieyes banner -->
     <script>
       document.addEventListener("cookieyes_banner_load", function (eventData) {
-         performBannerAction("reject");
-       });
-     </script>
+        //write condotion to check if query parameter has tracking=disabled
+        const urlParams = new URLSearchParams(window.location.search);
+        const trackingDisabled = urlParams.has("tracking=disabled");
+        if (trackingDisabled) {
+          // Perform action to reject cookies if parameter exists
+          performBannerAction("reject");
+        }
+      });
+    </script>
 
     <script>
       var checktimeout = 0;

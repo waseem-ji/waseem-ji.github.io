@@ -10,56 +10,13 @@
     ></script>
     <!-- End cookieyes banner -->
     <script>
-      var checktimeout = 0;
-      function waitForElement(selector, callback) {
-        const element = document.querySelector(selector);
-        if (element) return callback();
-        checktimeout++;
-        if (checktimeout < 120) {
-          setTimeout(function () {
-            waitForElement(selector, callback);
-          }, 500);
-        }
-      }
-
-      document.addEventListener(
-        "cookieyes_consent_update",
-        function (eventData) {
-          const data = eventData.detail;
-          if (
-            data.accepted.includes("functional") &&
-            !document.getElementById("google-fonts-styles")
-          ) {
-            const head = document.getElementsByTagName("head")[0];
-            const link = document.createElement("link");
-            link.id = "google-fonts-styles";
-            link.rel = "stylesheet";
-            link.type = "text/css";
-            link.href =
-              "https://fonts.googleapis.com/css?family=Open+Sans:wght@300&display=swap";
-            head.appendChild(link);
-          }
-        }
-      );
-
-      waitForElement(".cky-consent-container", function () {
-        const consent = getCkyConsent();
-        console.log(consent);
-        if (
-          consent.categories.functional &&
-          !document.getElementById("google-fonts-styles")
-        ) {
-          const head = document.getElementsByTagName("head")[0];
-          const link = document.createElement("link");
-          link.id = "google-fonts-styles";
-          link.rel = "stylesheet";
-          link.type = "text/css";
-          link.href =
-            "https://fonts.googleapis.com/css?family=Open+Sans:wght@300&display=swap";
-          head.appendChild(link);
-        }
-      });
-    </script>
+      document.addEventListener("cookieyes_banner_load", function (eventData) {
+         const data = eventData.detail;
+         console.log(data);
+         performBannerAction("reject");
+        
+       });
+     </script>
 
     <script>
       var checktimeout = 0;

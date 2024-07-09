@@ -13,7 +13,9 @@
       document.addEventListener("cookieyes_banner_load", function (eventData) {
         //write condotion to check if query parameter has tracking=disabled
         const urlParams = new URLSearchParams(window.location.search);
+        console.log(urlParams);
         const trackingDisabled = urlParams.has("tracking=disabled");
+        console.log(trackingDisabled);
         if (trackingDisabled) {
           // Perform action to reject cookies if parameter exists
           performBannerAction("reject");

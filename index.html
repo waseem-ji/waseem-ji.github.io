@@ -11,10 +11,10 @@
     <!-- End cookieyes banner -->
     <script>
       document.addEventListener("cookieyes_banner_load", function (eventData) {
-        // condotion to check if query parameter has tracking=disabled
+        // condition to check if query parameter has tracking=disabled
         const urlParams = new URLSearchParams(window.location.search);
-        const trackingDisabled = urlParams.get('tracking')==="disabled";
-        
+        const trackingDisabled = urlParams.get("tracking") === "disabled";
+
         if (trackingDisabled) {
           // Perform action to reject cookies if parameter exists
           performBannerAction("reject");
@@ -23,32 +23,16 @@
     </script>
 
     <script>
-      var checktimeout = 0;
-
-      window.addEventListener("load", function () {
-        waitForElement(".cky-notice-des", function () {
-          const rejectElem = document
-            .querySelector(".cky-notice-des")
-            .querySelector("u");
-          if (rejectElem) {
-            rejectElem.addEventListener("click", function () {
-              performBannerAction("reject");
-            });
+      function inIframe() {
+        return true;
+      }
+      if (!inIframe()) {
+        document.addEventListener(
+          "cookieyes_banner_load",
+          function (eventData) {
+            performBannerAction("reject");
           }
-        });
-      });
-
-      function waitForElement(selector, callback) {
-        const element = document.querySelector(selector);
-        if (element) {
-          return callback();
-        }
-        checktimeout++;
-        if (checktimeout < 120) {
-          setTimeout(function () {
-            waitForElement(selector, callback);
-          }, 500);
-        }
+        );
       }
     </script>
 

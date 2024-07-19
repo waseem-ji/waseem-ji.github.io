@@ -36,13 +36,15 @@
 document.addEventListener("cookieyes_banner_load", function (eventData) {
 const data = eventData.detail;
 console.log(data.categories.analytics);
-if (data.categories.analytics) {
+
   console.log("Analytics is accepted");
   window.uetq = window.uetq || [];
   window.uetq.push("consent", "default", {
-    ad_storage: "denied",
+    ad_storage: data.categories.analytics ? "granted" : "denied",
   });
-}
+
+  console.log(data.categories.analytics? "granted" : "denied");
+
 });
 
 

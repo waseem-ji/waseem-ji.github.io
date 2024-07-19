@@ -22,19 +22,44 @@
       });
     </script>
 
-    <script>
-      function inIframe() {
-        return true;
-      }
-      if (!inIframe()) {
-        document.addEventListener(
-          "cookieyes_banner_load",
-          function (eventData) {
-            performBannerAction("reject");
-          }
-        );
-      }
-    </script>
+<script>
+  window.uetq = window.uetq || [];
+  window.uetq.push('config', 'tcf', { 'enabled' : true });
+</script>
+
+// UET tag is added here
+// You can set default consent mode right after the UET tag
+
+<script>
+
+//Set default consent For UET tags
+document.addEventListener("cookieyes_banner_load", function (eventData) {
+const data = eventData.detail;
+console.log(data.categories.analytics);
+if (data.categories.analytics) {
+  console.log("Analytics is accepted");
+  window.uetq = window.uetq || [];
+  window.uetq.push("consent", "default", {
+    ad_storage: "denied",
+  });
+}
+});
+
+
+//Update UET consent based on user interaction
+document.addEventListener("cookieyes_consent_update", function (eventData) {
+const data = eventData.detail;
+if (data.accepted.includes("analytics")) {
+  console.log("Analytics is accepted");
+  window.uetq = window.uetq || [];
+  window.uetq.push("consent", "update", {
+    ad_storage: "granted",
+  });
+}
+});
+
+
+</script>
 
     <!-- End cookieyes banner -->
     <!-- Google Tag Manager -->

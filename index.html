@@ -2,65 +2,11 @@
 <html lang="pl">
   <head>
     <!-- Start cookieyes banner -->
-    <!-- Start cookieyes banner -->
     <script
       id="cookieyes"
       type="text/javascript"
-      src="https://mojoview.com/client_data/fa52a84bb314a2b46a12ffd8/script.js"
+      src="https://mojoview.com/client_data/8effaf528683ed1b0207f0d6/script.js"
     ></script>
-    <!-- End cookieyes banner -->
-    <script>
-      document.addEventListener("cookieyes_banner_load", function (eventData) {
-        // condition to check if query parameter has tracking=disabled
-        const urlParams = new URLSearchParams(window.location.search);
-        const trackingDisabled = urlParams.get("tracking") === "disabled";
-
-        if (trackingDisabled) {
-          // Perform action to reject cookies if parameter exists
-          performBannerAction("reject");
-        }
-      });
-    </script>
-
-    <script>
-      window.uetq = window.uetq || [];
-      window.uetq.push("config", "tcf", { enabled: true });
-    </script>
-
-    // UET tag is added here // You can set default consent mode right after the
-    UET tag
-
-    <script>
-      //Set default consent For UET tags
-      document.addEventListener("cookieyes_banner_load", function (eventData) {
-        const data = eventData.detail;
-        console.log(data.categories.analytics);
-
-        console.log("Analytics is accepted");
-        window.uetq = window.uetq || [];
-        window.uetq.push("consent", "default", {
-          ad_storage: data.categories.analytics ? "granted" : "denied",
-        });
-
-        console.log(data.categories.analytics ? "granted" : "denied");
-      });
-
-      //Update UET consent based on user interaction
-      document.addEventListener(
-        "cookieyes_consent_update",
-        function (eventData) {
-          const data = eventData.detail;
-          if (data.accepted.includes("analytics")) {
-            console.log("Analytics is accepted");
-            window.uetq = window.uetq || [];
-            window.uetq.push("consent", "update", {
-              ad_storage: "granted",
-            });
-          }
-        }
-      );
-    </script>
-
     <!-- End cookieyes banner -->
     <!-- Google Tag Manager -->
     <script>
@@ -117,45 +63,3 @@
     <a class="cky-banner-element">Cookie Settings</a> <br />
   </body>
 </html>
-// UET tag is added here // You can set default consent mode right after the UET
-tag
-<script>
-  window.uetq = window.uetq || [];
-  window.uetq.push("consent", "default", {
-    ad_storage: "denied",
-  });
-</script>
-
-<script>
-  var checktimeout = 0;
-  function waitForElement(selector, callback) {
-    const element = document.querySelector(selector);
-    if (element) return callback();
-    checktimeout++;
-    if (checktimeout < 120) {
-      setTimeout(function () {
-        waitForElement(selector, callback);
-      }, 500);
-    }
-  }
-
-  document.addEventListener("cookieyes_consent_update", function (eventData) {
-    const data = eventData.detail;
-    if (data.accepted.includes("advertisement")) {
-      window.uetq = window.uetq || [];
-      window.uetq.push("consent", "update", {
-        ad_storage: "granted",
-      });
-    }
-  });
-
-  waitForElement(".cky-consent-container", function () {
-    const consent = getCkyConsent();
-    if (consent.categories.advertisement) {
-      window.uetq = window.uetq || [];
-      window.uetq.push("consent", "update", {
-        ad_storage: "granted",
-      });
-    }
-  });
-</script>

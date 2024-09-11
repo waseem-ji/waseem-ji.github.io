@@ -22,50 +22,48 @@
       });
     </script>
 
-<script>
-  window.uetq = window.uetq || [];
-  window.uetq.push('config', 'tcf', { 'enabled' : true });
-</script>
+    <script>
+      window.uetq = window.uetq || [];
+      window.uetq.push("config", "tcf", { enabled: true });
+    </script>
 
-// UET tag is added here
-// You can set default consent mode right after the UET tag
+    // UET tag is added here // You can set default consent mode right after the
+    UET tag
 
-<script>
+    <script>
+      //Set default consent For UET tags
+      document.addEventListener("cookieyes_banner_load", function (eventData) {
+        const data = eventData.detail;
+        console.log(data.categories.analytics);
 
-//Set default consent For UET tags
-document.addEventListener("cookieyes_banner_load", function (eventData) {
-const data = eventData.detail;
-console.log(data.categories.analytics);
+        console.log("Analytics is accepted");
+        window.uetq = window.uetq || [];
+        window.uetq.push("consent", "default", {
+          ad_storage: data.categories.analytics ? "granted" : "denied",
+        });
 
-  console.log("Analytics is accepted");
-  window.uetq = window.uetq || [];
-  window.uetq.push("consent", "default", {
-    ad_storage: data.categories.analytics ? "granted" : "denied",
-  });
+        console.log(data.categories.analytics ? "granted" : "denied");
+      });
 
-  console.log(data.categories.analytics? "granted" : "denied");
-
-});
-
-
-//Update UET consent based on user interaction
-document.addEventListener("cookieyes_consent_update", function (eventData) {
-const data = eventData.detail;
-if (data.accepted.includes("analytics")) {
-  console.log("Analytics is accepted");
-  window.uetq = window.uetq || [];
-  window.uetq.push("consent", "update", {
-    ad_storage: "granted",
-  });
-}
-});
-
-
-</script>
+      //Update UET consent based on user interaction
+      document.addEventListener(
+        "cookieyes_consent_update",
+        function (eventData) {
+          const data = eventData.detail;
+          if (data.accepted.includes("analytics")) {
+            console.log("Analytics is accepted");
+            window.uetq = window.uetq || [];
+            window.uetq.push("consent", "update", {
+              ad_storage: "granted",
+            });
+          }
+        }
+      );
+    </script>
 
     <!-- End cookieyes banner -->
     <!-- Google Tag Manager -->
-    <!-- <script>
+    <script>
       (function (w, d, s, l, i) {
         w[l] = w[l] || [];
         w[l].push({ "gtm.start": new Date().getTime(), event: "gtm.js" });
@@ -76,7 +74,7 @@ if (data.accepted.includes("analytics")) {
         j.src = "https://www.googletagmanager.com/gtm.js?id=" + i + dl;
         f.parentNode.insertBefore(j, f);
       })(window, document, "script", "dataLayer", "GTM-MPVV9RP");
-    </script> -->
+    </script>
     <!-- End Google Tag Manager -->
   </head>
   <body>
